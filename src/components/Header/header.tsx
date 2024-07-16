@@ -7,7 +7,7 @@ import { MobileNav } from "./MobileNav";
 
 export default function Header() {
   return (
-    <header className="z-10 py-4 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="z-10 py-4 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <UrbaLogo />
         <div className="flex-1 flex items-center justify-end space-x-2">
