@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const navLinks = [
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Our Services" },
-  { href: "/achievements", label: "Our Achievements" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/achievements", label: "Achievements" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -21,7 +21,7 @@ const NavLink: React.FC<{ href: string; label: string; className?: string }> = (
     <Link
       href={href}
       className={cn(
-        "text-sm md:text-lg font-normal transition-colors hover:underline hover:underline-offset-2 hidden sm:inline-block",
+        "text-sm md:text-lg font-normal transition-transform hover:scale-110 hidden sm:inline-block",
         pathname === href ? "text-foreground" : "text-foreground", className
       )}
     >
