@@ -9,6 +9,7 @@ import { Icons } from "../icons";
 import { siteConfig } from "@/config/site";
 import { navLinks } from "./MainNav";
 import { AlignJustify } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -30,9 +31,9 @@ export function MobileNav() {
           <Icons.logo className="mr-2 size-5" />
           <span className="sr-only">{siteConfig.name}</span>
         </MobileLink>
-        <div className="flex flex-col gap-3 mt-3">
+        <div className="flex flex-col gap-3 mt-5">
           {navLinks.map((link) => (
-            <MobileLink onOpenChange={setOpen} key={link.href} href={link.href}>
+            <MobileLink onOpenChange={setOpen} key={link.href} href={link.href} className={cn(link.label === 'Contact' ? 'bg-primary w-fit text-lg rounded-full px-3 py-1' : null)}>
               {link.label}
             </MobileLink>
           ))}
