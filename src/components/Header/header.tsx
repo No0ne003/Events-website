@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Icons } from "../icons";
 import { MainNav } from "./MainNav";
+import Link from "next/link";
+import { siteConfig } from "@/config/site";
 
 export default function Header() {
   return (
@@ -16,5 +18,10 @@ export default function Header() {
 }
 
 export function UrbaLogo() {
-  return <Icons.logo />;
+  return (
+    <Link href="/">
+      <Icons.logo />
+      <span className="sr-only">{siteConfig.name}</span>
+    </Link>
+  );
 }
