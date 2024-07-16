@@ -24,7 +24,7 @@ const NavLink: React.FC<{ href: string; label: string; className?: string }> = (
     <Link
       href={href}
       className={cn(
-        "relative text-sm md:text-lg font-normal transition-transform hover:scale-110 hidden sm:inline-block",
+        "relative text-sm md:text-lg font-medium transition-transform hover:scale-110 hidden sm:inline-block",
         pathname === href ? cn(
           "before:content-['*'] before:text-2xl before:mr-1",
           label === "Contact" && "before:content-none"
