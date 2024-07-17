@@ -33,7 +33,7 @@ export default function Intro() {
     <div className="relative" ref={comp}>
       <div
         id="intro-slider"
-        className="h-screen p-10 bg-gray-50 absolute top-0 left-0 font-mono z-10 w-full flex flex-col items-center justify-center gap-10 text-black"
+        className="absolute h-screen w-full p-10 bg-gray-200 text-background top-0 left-0 font-mono z-10 flex flex-col items-center justify-center gap-10"
       >
         <h1 id="main-title" className="text-8xl flex flex-col gap-5">
           <span id="title-span-1">Urba</span>
