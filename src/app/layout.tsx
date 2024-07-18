@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import Header from "@/components/Header/header";
+import Intro from "@/components/Intro";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -33,10 +34,11 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex flex-col",
           fontSans.variable,
         )}
       >
+        <Intro />
         <Header />
         {children}
       </body>
