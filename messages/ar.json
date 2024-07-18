@@ -1,4 +1,10 @@
 {
+  "Header": {
+    "about": "حولنا",
+    "services": "الخدمات",
+    "achievements": "الإنجازات",
+    "contact": "تواصل معنا"
+  },
   "HomePage": {
     "title": "مرحبا"
   }

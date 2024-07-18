@@ -1,4 +1,10 @@
 {
+  "Header": {
+    "about": "About",
+    "services": "Services",
+    "achievements": "Achievements",
+    "contact": "Contact"
+  },
   "HomePage": {
     "title": "Hello!"
   }
