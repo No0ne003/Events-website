@@ -7,12 +7,21 @@ import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 import { Icons } from "../icons";
 import { siteConfig } from "@/config/site";
-import { navLinks } from "./MainNav";
+import { useTranslations } from "next-intl"; // Import useTranslations
 import { AlignJustify } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const t = useTranslations("Header"); // Use translations from the 'Header' namespace
+
+  // Navigation links data using translations
+  const navLinks = [
+    { href: "/about", label: t("about") },
+    { href: "/services", label: t("services") },
+    { href: "/achievements", label: t("achievements") },
+    { href: "/contact", label: t("contact") },
+  ];
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -28,12 +37,21 @@ export function MobileNav() {
           href="/"
           className="flex items-center"
         >
-          <Icons.logo className="mr-2 size-5" />
+          <Icons.logo className="mr-2 " />
           <span className="sr-only">{siteConfig.name}</span>
         </MobileLink>
         <div className="flex flex-col gap-3 mt-5">
           {navLinks.map((link) => (
-            <MobileLink onOpenChange={setOpen} key={link.href} href={link.href} className={cn(link.label === 'Contact' ? 'bg-primary w-fit text-lg rounded-full px-3 py-1' : null)}>
+            <MobileLink
+              onOpenChange={setOpen}
+              key={link.href}
+              href={link.href}
+              className={cn(
+                link.label === t("contact")
+                  ? "bg-primary w-fit text-lg rounded-full px-3 py-1"
+                  : null,
+              )}
+            >
               {link.label}
             </MobileLink>
           ))}
