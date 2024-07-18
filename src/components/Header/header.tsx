@@ -4,6 +4,7 @@ import { MainNav } from "./MainNav";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { MobileNav } from "./MobileNav";
+import LocalSwitcher from "../local-switcher";
 
 export default function Header() {
   return (
@@ -13,6 +14,7 @@ export default function Header() {
         <div className="flex-1 flex items-center justify-end space-x-2">
           <MainNav />
           <MobileNav />
+          <LocalSwitcher />
         </div>
       </div>
     </header>
