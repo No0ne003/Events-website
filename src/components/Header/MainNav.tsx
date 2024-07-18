@@ -1,16 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-// Navigation links data
-export const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/achievements", label: "Achievements" },
-  { href: "/contact", label: "Contact" },
-];
 
 // NavLink component with dynamic styles based on current pathname
 const NavLink: React.FC<{
@@ -40,6 +33,16 @@ const NavLink: React.FC<{
 
 // MainNav component rendering the navigation links
 export function MainNav() {
+  const t = useTranslations("Header"); // Use translations from the 'Header' namespace
+
+  // Navigation links data using translations
+  const navLinks = [
+    { href: "/about", label: t("about") },
+    { href: "/services", label: t("services") },
+    { href: "/achievements", label: t("achievements") },
+    { href: "/contact", label: t("contact") },
+  ];
+
   return (
     <nav className="flex items-center space-x-4 lg:space-x-6">
       {navLinks.map((link) => (
@@ -48,7 +51,7 @@ export function MainNav() {
           href={link.href}
           label={link.label}
           className={cn(
-            link.label === "Contact" &&
+            link.label === t("contact") &&
               "hover:no-underline bg-primary rounded-full px-3 py-1 transition-all hover:px-5 hover:bg-transparent border-primary border-[2px] hover:shadow-primary hover:shadow-2xl",
           )}
         />
