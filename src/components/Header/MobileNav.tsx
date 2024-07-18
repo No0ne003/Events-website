@@ -37,7 +37,7 @@ export function MobileNav() {
           href="/"
           className="flex items-center"
         >
-          <Icons.logo className="mr-2 size-5" />
+          <Icons.logo className="mr-2 " />
           <span className="sr-only">{siteConfig.name}</span>
         </MobileLink>
         <div className="flex flex-col gap-3 mt-5">

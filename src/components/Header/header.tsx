@@ -11,10 +11,10 @@ export default function Header() {
     <header className="py-4 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <UrbaLogo />
-        <div className="flex-1 flex items-center justify-end space-x-2">
+        <div className="flex-1 flex items-center justify-end space-x-5">
           <MainNav />
-          <MobileNav />
           <LocalSwitcher />
+          <MobileNav />
         </div>
       </div>
     </header>
