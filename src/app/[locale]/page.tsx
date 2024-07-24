@@ -49,9 +49,9 @@ const Home: React.FC = () => {
               backgroundSize: "cover",
             }}
             initial={{ scale: 0, y: "100%" }}
-            animate={{ scale: 1, y: "-10%" }}
+            animate={{ scale: 1, y: "-15%" }}
             transition={{
-              scale: { duration: 1, delay: 0.4 * index },
+              scale: { duration: 1, delay: 1 + 0.4 * index },
               y: {
                 ease: [0.87, 0, 0.13, 1],
                 delay: 1 + 0.4 * index,
