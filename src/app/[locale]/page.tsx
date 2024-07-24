@@ -28,17 +28,6 @@ const Home: React.FC = () => {
     },
   };
 
-  const letterVariants = {
-    hidden: { y: "100%" },
-    visible: {
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.19, 1, 0.22, 1],
-      },
-    },
-  };
-
   return (
     <div className="container flex-1 flex justify-center items-center relative">
       <motion.div
@@ -59,12 +48,15 @@ const Home: React.FC = () => {
               background: `url(${url}) 50% 50% no-repeat`,
               backgroundSize: "cover",
             }}
-            initial={{ y: "98%" }}
-            animate={{ y: 0 }}
+            initial={{ scale: 0, y: "100%" }}
+            animate={{ scale: 1, y: "-10%" }}
             transition={{
-              ease: [0.87, 0, 0.13, 1],
-              delay: 1 + 0.4 * index,
-              duration: 2,
+              scale: { duration: 1, delay: 0.4 * index },
+              y: {
+                ease: [0.87, 0, 0.13, 1],
+                delay: 1 + 0.4 * index,
+                duration: 2,
+              },
             }}
           ></motion.div>
         ))}
@@ -81,8 +73,8 @@ const Home: React.FC = () => {
         }}
       />
 
-      {/* <motion.h1
-        className="text-[10em] font-bold font-mono mt-[20rem] overflow-hidden flex"
+      <motion.h1
+        className="text-[10em] font-bold font-mono mb-[18rem] overflow-hidden flex"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -91,12 +83,18 @@ const Home: React.FC = () => {
           <motion.span
             key={index}
             className="inline-block"
-            variants={letterVariants}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: [0.19, 1, 0.22, 1],
+              delay: 5.5 + 0.1 * index,
+            }}
           >
             {char}
           </motion.span>
         ))}
-      </motion.h1> */}
+      </motion.h1>
     </div>
   );
 };
