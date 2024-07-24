@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 const Home: React.FC = () => {
@@ -79,21 +79,35 @@ const Home: React.FC = () => {
         initial="hidden"
         animate="visible"
       >
-        {title.split("").map((char, index) => (
-          <motion.span
-            key={index}
-            className="inline-block"
+        {useLocale() === "ar" ? (
+          <motion.div
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{
-              duration: 0.8,
+              delay: 5.5,
               ease: [0.19, 1, 0.22, 1],
-              delay: 5.5 + 0.1 * index,
+              duration: 0.8,
             }}
           >
-            {char}
-          </motion.span>
-        ))}
+            {title}
+          </motion.div>
+        ) : (
+          title.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              className="inline-block"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.19, 1, 0.22, 1],
+                delay: 5.5 + 0.1 * index,
+              }}
+            >
+              {char}
+            </motion.span>
+          ))
+        )}
       </motion.h1>
     </div>
   );
