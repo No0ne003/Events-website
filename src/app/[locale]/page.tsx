@@ -41,11 +41,20 @@ const Home: React.FC = () => {
 
   return (
     <div className="container flex-1 flex justify-center items-center relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px]">
+      <motion.div
+        className="absolute w-[400px] h-[300px]"
+        initial={{ scale: 1, y: "0%" }}
+        animate={{ scale: 2, y: "140%" }}
+        transition={{
+          duration: 2,
+          ease: [0.19, 1, 0.22, 1],
+          delay: 5.5,
+        }}
+      >
         {images.map((url, index) => (
           <motion.div
             key={index}
-            className="size-full absolute aspect-square"
+            className="size-full absolute"
             style={{
               background: `url(${url}) 50% 50% no-repeat`,
               backgroundSize: "cover",
@@ -59,7 +68,7 @@ const Home: React.FC = () => {
             }}
           ></motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <motion.div
         className="absolute w-full h-[30vh] bg-background"
@@ -72,7 +81,7 @@ const Home: React.FC = () => {
         }}
       />
 
-      <motion.h1
+      {/* <motion.h1
         className="text-[10em] font-bold font-mono mt-[20rem] overflow-hidden flex"
         variants={containerVariants}
         initial="hidden"
@@ -87,7 +96,7 @@ const Home: React.FC = () => {
             {char}
           </motion.span>
         ))}
-      </motion.h1>
+      </motion.h1> */}
     </div>
   );
 };
