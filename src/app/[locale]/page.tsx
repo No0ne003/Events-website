@@ -50,7 +50,7 @@ const Home: React.FC = () => {
               background: `url(${url}) 50% 50% no-repeat`,
               backgroundSize: "cover",
             }}
-            initial={{ y: "110%" }}
+            initial={{ y: "98%" }}
             animate={{ y: 0 }}
             transition={{
               ease: [0.87, 0, 0.13, 1],
@@ -61,11 +61,19 @@ const Home: React.FC = () => {
         ))}
       </div>
 
-      <div className="overlay absolute w-full h-[50vh] bottom-[-12rem] bg-background"></div>
+      <motion.div
+        className="absolute w-full h-[30vh] bg-background"
+        initial={{ y: "100%", scale: 1 }}
+        animate={{ scale: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeInOut",
+          delay: 5.2,
+        }}
+      />
 
       <motion.h1
-        id="title"
-        className="title text-[10em] font-bold font-mono mt-[20rem] overflow-hidden flex"
+        className="text-[10em] font-bold font-mono mt-[20rem] overflow-hidden flex"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
