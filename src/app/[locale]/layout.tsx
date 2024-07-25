@@ -4,7 +4,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import Header from "@/components/Header/header";
-import Intro from "@/components/Intro";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
@@ -45,7 +44,6 @@ export default async function RootLayout({
         )}
       >
         <NextIntlClientProvider messages={messages}>
-          {/* <Intro /> */}
           <Header />
           {children}
         </NextIntlClientProvider>
