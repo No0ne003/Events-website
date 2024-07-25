@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
-// NavLink component with dynamic styles based on current pathname
 const NavLink: React.FC<{
   href: string;
   label: string;
@@ -13,6 +13,14 @@ const NavLink: React.FC<{
 }> = ({ href, label, className }) => {
   const pathname = usePathname();
   return (
+    // <motion.div
+    //   initial={{ y: "-300%" }}
+    //   animate={{ y: 0 }}
+    //   transition={{
+    //     duration: 0.8,
+    //     ease: [0.19, 1, 0.22, 1],
+    //   }}
+    // >
     <Link
       href={href}
       className={cn(
@@ -28,6 +36,7 @@ const NavLink: React.FC<{
     >
       {label}
     </Link>
+    // </motion.div>
   );
 };
 
