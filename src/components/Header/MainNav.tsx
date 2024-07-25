@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
-// NavLink component with dynamic styles based on current pathname
 const NavLink: React.FC<{
   href: string;
   label: string;
@@ -31,11 +31,9 @@ const NavLink: React.FC<{
   );
 };
 
-// MainNav component rendering the navigation links
 export function MainNav() {
-  const t = useTranslations("Header"); // Use translations from the 'Header' namespace
+  const t = useTranslations("Header");
 
-  // Navigation links data using translations
   const navLinks = [
     { href: "/about", label: t("about") },
     { href: "/services", label: t("services") },
@@ -52,7 +50,7 @@ export function MainNav() {
           label={link.label}
           className={cn(
             link.label === t("contact") &&
-              "hover:no-underline bg-primary rounded-full px-3 py-1 transition-all hover:px-5 hover:bg-transparent border-primary border-[2px] hover:shadow-primary hover:shadow-2xl",
+              "hover:no-underline bg-primary text-primary-foreground hover:text-primary rounded-full px-3 py-1 transition-all hover:px-5 hover:bg-transparent border-primary border-[2px] hover:shadow-primary hover:shadow-2xl",
           )}
         />
       ))}
