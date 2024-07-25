@@ -29,9 +29,9 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="container flex-1 flex justify-center items-center relative">
+    <div className="container flex-1 flex justify-center items-center relative overflow-x-hidden">
       <motion.div
-        className="absolute w-[400px] h-[300px]"
+        className="absolute w-[300px] h-[200px] md:w-[400px] md:h-[300px] aspect-square"
         initial={{ scale: 1, y: "0%" }}
         animate={{ scale: 2, y: "140%" }}
         transition={{
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
       />
 
       <motion.h1
-        className="text-[10em] font-bold font-mono mb-[18rem] overflow-hidden flex"
+        className="text-[4em] lg:text-[8em] font-bold font-mono mb-[18rem] overflow-hidden flex"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

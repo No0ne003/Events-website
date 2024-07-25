@@ -25,6 +25,7 @@
     --ring: 315 72% 40%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 300 4% 5%;
     --foreground: 0 0% 98%;
@@ -53,7 +54,11 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground font-sans;
+  }
+  *::-webkit-scrollbar {
+    width: 0px;
   }
 }
