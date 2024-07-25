@@ -11,7 +11,17 @@ import { motion } from "framer-motion";
 
 export default function Header() {
   return (
-    <header className="py-4 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="relative py-4 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <motion.div
+        initial={{ y: "-300%" }}
+        animate={{ y: 0 }}
+        transition={{
+          delay: 5.5,
+          duration: 0.8,
+          ease: [0.19, 1, 0.22, 1],
+        }}
+        className="absolute top-0 h-[90px] w-screen bg-gradient-to-b from-primary/20 to-transparent"
+      />
       <motion.div
         initial={{ y: "-300%" }}
         animate={{ y: 0 }}
@@ -35,8 +45,8 @@ export default function Header() {
 
 export function UrbaLogo() {
   return (
-    <Link href="/" className="flex self-end">
-      <Icons.logo />
+    <Link href="/" className="flex self-end shadow-primary">
+      <Icons.logo width={160} height={13} />
       <span className="sr-only">{siteConfig.name}</span>
     </Link>
   );

@@ -23,8 +23,8 @@ const LocalSwitcher = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="w-10 px-0 flex gap-1">
-          <Earth className="size-[1.2rem]" />
-          <p className="text-sm capitalize">{localActive}</p>
+          <Earth className="size-[1.2rem] ml-1" />
+          <p className="text-xs capitalize mr-1">{localActive}</p>
           <span className="sr-only">language switcher</span>
         </Button>
       </DropdownMenuTrigger>

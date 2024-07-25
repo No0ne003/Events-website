@@ -37,7 +37,7 @@ export function MobileNav() {
           href="/"
           className="flex items-center"
         >
-          <Icons.logo className="mr-2 " />
+          <Icons.logo width={160} height={13} className="mr-2 " />
           <span className="sr-only">{siteConfig.name}</span>
         </MobileLink>
         <div className="flex flex-col gap-3 mt-5">
@@ -48,7 +48,7 @@ export function MobileNav() {
               href={link.href}
               className={cn(
                 link.label === t("contact")
-                  ? "bg-primary w-fit text-lg rounded-full px-3 py-1"
+                  ? "bg-primary text-primary-foreground hover:text-primary w-fit text-lg rounded-full px-3 py-1"
                   : null,
               )}
             >

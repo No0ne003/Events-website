@@ -64,8 +64,8 @@ const Home: React.FC = () => {
 
       <motion.div
         className="absolute w-full h-[30vh] bg-background"
-        initial={{ y: "100%", scale: 1 }}
-        animate={{ scale: 0 }}
+        initial={{ y: "100%" }}
+        animate={{ width: 0, opacity: 0 }}
         transition={{
           duration: 0.5,
           ease: "easeInOut",
