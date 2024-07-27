@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import React from "react";
 
@@ -37,7 +35,7 @@ const ImageAnimation: React.FC<ImageAnimationProps> = ({ images }) => {
               duration: 2,
             },
           }}
-        ></motion.div>
+        />
       ))}
     </motion.div>
   );

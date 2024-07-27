@@ -1,30 +1,33 @@
-"use client";
-
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React from "react";
 
 interface TitleAnimationProps {
   title: string;
   locale: string;
+  className?: string;
 }
 
-const TitleAnimation: React.FC<TitleAnimationProps> = ({ title, locale }) => {
-  const containerVariants = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
+const TitleAnimation: React.FC<TitleAnimationProps> = ({
+  title,
+  locale,
+  className,
+}) => {
   return (
     <motion.h1
-      className="text-[4em] lg:text-[5.3em] font-bold font-mono mb-[18rem] overflow-hidden flex"
-      variants={containerVariants}
+      className={cn(
+        "text-[4em] lg:text-[5.3em] font-bold flex overflow-hidden",
+        className,
+      )}
       initial="hidden"
       animate="visible"
+      variants={{
+        hidden: { opacity: 1 },
+        visible: {
+          opacity: 1,
+          transition: { staggerChildren: 0.1 },
+        },
+      }}
     >
       {locale === "ar" ? (
         <motion.div
@@ -46,9 +49,9 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({ title, locale }) => {
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{
-              duration: 0.4,
+              duration: 0.8,
               ease: [0.19, 1, 0.22, 1],
-              delay: 5.5 + 0.1 * index,
+              delay: 5.5 + 0.05 * index,
             }}
           >
             {char === " " ? "\u00A0" : char}
