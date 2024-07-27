@@ -31,7 +31,7 @@ const Home: React.FC = () => {
   return (
     <div className="container flex-1 flex justify-center items-center relative overflow-x-hidden">
       <motion.div
-        className="absolute w-[300px] h-[200px] md:w-[400px] md:h-[300px] aspect-square"
+        className="absolute w-[49vw] h-[160px] aspect-video md:h-[250px] lg:w-[400px] lg:h-[300px] lg:aspect-square rounded-md overflow-hidden"
         initial={{ scale: 1, y: "0%" }}
         animate={{ scale: 2, y: "140%" }}
         transition={{
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
         {images.map((url, index) => (
           <motion.div
             key={index}
-            className="size-full absolute"
+            className="size-full absolute rounded-md"
             style={{
               background: `url(${url}) 50% 50% no-repeat`,
               backgroundSize: "cover",
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
             initial={{ scale: 0, y: "100%" }}
             animate={{ scale: 1, y: "-15%" }}
             transition={{
-              scale: { duration: 1, delay: 1 + 0.4 * index },
+              scale: { duration: 1, delay: 1 },
               y: {
                 ease: [0.87, 0, 0.13, 1],
                 delay: 1 + 0.4 * index,
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className="absolute w-full h-[30vh] bg-background"
+        className="absolute w-full h-[35vh] bg-background top-[18%] md:top-[23%]"
         initial={{ y: "100%" }}
         animate={{ width: 0, opacity: 0 }}
         transition={{
