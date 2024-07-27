@@ -16,7 +16,7 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
   return (
     <motion.h1
       className={cn(
-        "text-[4em] lg:text-[5.3em] font-bold flex overflow-hidden",
+        "text-[2em] sm:text-[3em] lg:text-[5.3em] font-bold flex overflow-hidden",
         className,
       )}
       initial="hidden"

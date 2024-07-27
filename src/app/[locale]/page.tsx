@@ -24,10 +24,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex-1">
-      <div className="container flex flex-col justify-center items-center relative">
-        <div className="flex flex-col justify-center items-center w-full h-[400px]">
+      <div className="container flex flex-col justify-center items-center relative size-full">
+        <div className="flex flex-col gap-10 justify-center items-center w-screen h-[400px]">
           <TitleAnimation title={title} locale={locale} />
-          <Button>Contact Us</Button>
+          {/* <Button>Contact Us</Button> */}
         </div>
         <div className="flex justify-center items-center w-full">
           <ImageAnimation images={images} />
