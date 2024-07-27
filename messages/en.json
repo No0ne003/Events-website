@@ -6,6 +6,8 @@
     "contact": "Contact"
   },
   "HomePage": {
-    "title": "Organization of events"
+    "title": "Organization of events",
+    "contact-us": "Contact us",
+    "discover-now": "Discover now"
   }
 }
