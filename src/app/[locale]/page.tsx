@@ -43,10 +43,15 @@ const Home: React.FC = () => {
               localActive === "ar" ? "flex-row-reverse" : null,
             )}
           >
-            <Button variant={"secondary"} size="xl" asChild>
+            <Button
+              variant={"secondary"}
+              size={"xl"}
+              className="bg-secondary text-secondary-foreground hover:text-secondary hover:px-10 transition-all hover:bg-transparent border-secondary border-2 hover:shadow-secondary hover:shadow-2xl"
+              asChild
+            >
               <Link href={`${localActive}/contact`}>{t("contact-us")}</Link>
             </Button>
-            <Button variant={"outline"} size="lg">
+            <Button variant={"outline"} size={"xl"} asChild>
               <Link href={`${localActive}/services`}>{t("discover-now")}</Link>
             </Button>
           </motion.div>
