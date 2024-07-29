@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
@@ -12,6 +12,7 @@ const NavLink: React.FC<{
   className?: string;
 }> = ({ href, label, className }) => {
   const pathname = usePathname();
+
   return (
     <Link
       href={href}
@@ -41,12 +42,14 @@ export function MainNav() {
     { href: "/contact", label: t("contact") },
   ];
 
+  const localActive = useLocale();
+
   return (
     <nav className="flex items-center space-x-4 lg:space-x-6">
       {navLinks.map((link) => (
         <NavLink
           key={link.href}
-          href={link.href}
+          href={`${localActive}${link.href}`}
           label={link.label}
           className={cn(
             link.label === t("contact") &&
