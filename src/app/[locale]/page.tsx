@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useMessages, useTranslations } from "next-intl";
 import ImageAnimation from "@/components/Home/ImageAnimation";
 import TitleAnimation from "@/components/Home/TitleAnimation";
 import { motion } from "framer-motion";
@@ -8,28 +8,34 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+// Constants
+const IMAGES = [
+  "/festival-agicole.jpg",
+  "/festival-national.jpg",
+  "/festival-printemps.jpeg",
+  "/marathon.jpg",
+  "/mariage.jpg",
+  "/semi-marathon-2.jpg",
+  "/semi-marathon.jpg",
+];
+
 const Home: React.FC = () => {
   const locale = useLocale();
   const t = useTranslations("HomePage");
+  const messages = useMessages();
+  const keys = messages.HomePage.title;
 
-  const images = [
-    "/festival-agicole.jpg",
-    "/festival-national.jpg",
-    "/festival-printemps.jpeg",
-    "/marathon.jpg",
-    "/mariage.jpg",
-    "/semi-marathon-2.jpg",
-    "/semi-marathon.jpg",
+  const words = [
+    { word: keys[0] },
+    { word: keys[1] },
+    { word: keys[2], className: "text-secondary font-bold" },
   ];
-
-  const title = t("title");
-  const localActive = useLocale();
 
   return (
     <div className="flex-1">
       <div className="container flex flex-col justify-center items-center relative size-full">
         <div className="flex flex-col gap-10 justify-center items-center w-screen h-[400px]">
-          <TitleAnimation title={title} locale={locale} />
+          <TitleAnimation locale={locale} title={words} arTitle={t("title")} />
           <motion.div
             initial={{ y: "-100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -39,25 +45,30 @@ const Home: React.FC = () => {
               ease: [0.19, 1, 0.22, 1],
             }}
             className={cn(
-              "flex gap-8 jusitfy-center items-center",
-              localActive === "ar" ? "flex-row-reverse" : null,
+              "flex gap-8 justify-center items-center",
+              locale === "ar" ? "flex-row-reverse" : "",
             )}
           >
             <Button
-              variant={"secondary"}
-              size={"xl"}
+              variant="secondary"
+              size="xl"
               className="bg-secondary text-secondary-foreground hover:text-secondary hover:px-10 transition-all hover:bg-transparent border-secondary border-2 hover:shadow-secondary hover:shadow-2xl"
               asChild
             >
-              <Link href={`${localActive}/contact`}>{t("contact-us")}</Link>
+              <Link href={`${locale}/contact`}>{t("contact-us")}</Link>
             </Button>
-            <Button variant={"outline"} size={"xl"} asChild>
-              <Link href={`${localActive}/services`}>{t("discover-now")}</Link>
+            <Button
+              variant="outline"
+              size="xl"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-background"
+              asChild
+            >
+              <Link href={`${locale}/services`}>{t("discover-now")}</Link>
             </Button>
           </motion.div>
         </div>
         <div className="flex justify-center items-center w-full">
-          <ImageAnimation images={images} />
+          <ImageAnimation images={IMAGES} />
         </div>
       </div>
 
