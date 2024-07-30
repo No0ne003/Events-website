@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 
 const NavLink: React.FC<{
   href: string;
@@ -21,7 +20,6 @@ const NavLink: React.FC<{
         pathname === href
           ? cn(
               "before:content-['*'] before:text-2xl before:mr-1",
-              label === "Contact" && "before:content-none",
             )
           : null,
         className,
@@ -51,10 +49,6 @@ export function MainNav() {
           key={link.href}
           href={`${localActive}${link.href}`}
           label={link.label}
-          className={cn(
-            link.label === t("contact") &&
-              "hover:no-underline bg-primary text-primary-foreground hover:text-primary rounded-full px-3 py-1 transition-all hover:px-5 hover:bg-transparent border-primary border-[2px] hover:shadow-primary hover:shadow-2xl",
-          )}
         />
       ))}
     </nav>
