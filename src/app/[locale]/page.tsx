@@ -51,15 +51,15 @@ const Home: React.FC = () => {
           >
             <Button
               variant="secondary"
-              size="xl"
-              className="bg-secondary text-secondary-foreground hover:text-secondary hover:px-10 transition-all hover:bg-transparent border-secondary border-2 hover:shadow-secondary hover:shadow-2xl"
+              size="lg"
+              className="bg-secondary text-secondary-foreground hover:text-secondary transition-all hover:bg-transparent border-secondary border-2 hover:shadow-secondary hover:shadow-2xl"
               asChild
             >
               <Link href={`${locale}/contact`}>{t("contact-us")}</Link>
             </Button>
             <Button
               variant="outline"
-              size="xl"
+              size="lg"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-background"
               asChild
             >
