@@ -4,9 +4,10 @@ import { useLocale, useMessages, useTranslations } from "next-intl";
 import ImageAnimation from "@/components/Home/ImageAnimation";
 import TitleAnimation from "@/components/Home/TitleAnimation";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 
 // Constants
 const IMAGES = [
@@ -50,19 +51,19 @@ const Home: React.FC = () => {
             )}
           >
             <Button
-              variant="secondary"
+              variant="expandIcon"
               size="lg"
-              className="bg-secondary text-secondary-foreground hover:text-secondary transition-all hover:bg-transparent border-secondary border-2 hover:shadow-secondary hover:shadow-2xl"
+              className="bg-secondary hover:bg-secondary/90"
               asChild
             >
-              <Link href={`${locale}/contact`}>{t("contact-us")}</Link>
+              <Link href={`${locale}/contact`}>
+                {t("contact-us")}
+                <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-4 group-hover:translate-x-0 group-hover:pl-3 group-hover:opacity-100">
+                  <ArrowRight className="size-4" />
+                </div>
+              </Link>
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-background"
-              asChild
-            >
+            <Button variant="linkHover1" asChild>
               <Link href={`${locale}/services`}>{t("discover-now")}</Link>
             </Button>
           </motion.div>
