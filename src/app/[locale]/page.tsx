@@ -50,9 +50,9 @@ const Home: React.FC = () => {
             )}
           >
             <Button
-              variant="expandIcon"
+              variant="shine"
               size="lg"
-              className="bg-secondary hover:bg-secondary/90"
+              className="bg-primary hover:bg-primary/90 group relative"
               asChild
             >
               <Link href={`${locale}/contact`}>
