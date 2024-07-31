@@ -34,7 +34,7 @@ const Home: React.FC = () => {
   return (
     <div className="flex-1">
       <div className="container flex flex-col justify-center items-center relative size-full">
-        <div className="flex flex-col gap-10 mt-10 justify-center items-center max-w-4xl h-[400px]">
+        <div className="flex flex-col gap-10 mt-14 justify-center items-center max-w-4xl h-[400px]">
           <TitleAnimation locale={locale} title={words} />
           <motion.div
             initial={{ y: "-100%", opacity: 0 }}
@@ -71,17 +71,6 @@ const Home: React.FC = () => {
           <ImageAnimation images={IMAGES} />
         </div>
       </div>
-
-      <motion.div
-        className="absolute w-full h-[35vh] bg-background top-[18%] md:top-[23%]"
-        initial={{ y: "100%" }}
-        animate={{ width: 0, opacity: 0 }}
-        transition={{
-          duration: 0.5,
-          ease: "easeInOut",
-          delay: 5.2,
-        }}
-      />
     </div>
   );
 };
