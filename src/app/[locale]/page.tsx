@@ -26,17 +26,16 @@ const Home: React.FC = () => {
   const messages = useMessages();
   const keys = messages.HomePage.title;
 
-  const words = [
-    { word: keys[0] },
-    { word: keys[1] },
-    { word: keys[2], className: "text-secondary font-bold" },
-  ];
+  const words = keys.map((word, index) => ({
+    word,
+    className: index === keys.length - 1 ? "text-secondary" : null,
+  }));
 
   return (
     <div className="flex-1">
       <div className="container flex flex-col justify-center items-center relative size-full">
-        <div className="flex flex-col gap-10 justify-center items-center w-screen h-[400px]">
-          <TitleAnimation locale={locale} title={words} arTitle={t("title")} />
+        <div className="flex flex-col gap-10 mt-10 justify-center items-center max-w-4xl h-[400px]">
+          <TitleAnimation locale={locale} title={words} />
           <motion.div
             initial={{ y: "-100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

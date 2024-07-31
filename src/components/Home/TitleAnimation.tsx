@@ -9,63 +9,65 @@ interface TitleAnimationProps {
   }[];
   locale: string;
   className?: string;
-  arTitle?: string;
 }
-
-// Helper Functions
-const createLetterArray = (title: TitleAnimationProps["title"]) =>
-  title.flatMap(({ word, className }, wordIndex) =>
-    word
-      .split("")
-      .map((letter, letterIndex) => ({
-        letter,
-        className: className || null,
-      }))
-      .concat(
-        wordIndex < title.length - 1
-          ? [{ letter: "\u00A0", className: null }]
-          : [],
-      ),
-  );
 
 const TitleAnimation: React.FC<TitleAnimationProps> = ({
   title,
   locale,
   className,
-  arTitle,
 }) => {
-  const letterArray = createLetterArray(title);
+  console.log(title);
 
   const renderTitle = () => {
     if (locale === "ar") {
       return (
-        <motion.div
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.19, 1, 0.22, 1],
-            delay: 5.5,
-          }}
-        >
-          {arTitle}
-        </motion.div>
+        <>
+          {title.map((word, index) => (
+            <motion.div
+              key={index}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.19, 1, 0.22, 1],
+                delay: 5.5 + 0.05 * index,
+              }}
+              className={cn("inline-block", word.className)}
+            >
+              {word.word}
+            </motion.div>
+          ))}
+        </>
       );
     } else {
-      return letterArray.map((letterObj, index) => (
-        <motion.span
+      return title.flatMap((wordObj, index) => (
+        <motion.div
           key={index}
-          className={cn("inline-block", letterObj.className)}
-          initial={{ y: "100%" }}
-          animate={{ y: 0 }}
+          className={cn("inline-block", wordObj.className)}
+          initial={{ y: "40%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{
             duration: 0.8,
             ease: [0.19, 1, 0.22, 1],
-            delay: 5.5 + 0.05 * index,
+            delay: 5.5 + 0.8 * index,
           }}
         >
-          {letterObj.letter}
-        </motion.span>
+          {wordObj.word.split("").map((letter, letterIndex) => (
+            <motion.span
+              key={letterIndex}
+              initial={{ y: "60%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                ease: [0.19, 1, 0.22, 1],
+                delay: 0.8 * index + 5.5 + 0.05 * letterIndex,
+              }}
+              className="inline-block"
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </motion.div>
       ));
     }
   };
@@ -73,7 +75,8 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
   return (
     <motion.h1
       className={cn(
-        "text-[2em] sm:text-[3em] lg:text-[5.3em] font-bold flex overflow-hidden",
+        "text-[2em] sm:text-[3em] lg:text-[5.3em] font-bold flex flex-wrap gap-5 justify-center overflow-hidden",
+        locale === "ar" ? "flex-row-reverse" : "flex-row",
         className,
       )}
       initial="hidden"
