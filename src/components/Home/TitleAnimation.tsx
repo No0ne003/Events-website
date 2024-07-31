@@ -30,7 +30,7 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
               transition={{
                 duration: 0.8,
                 ease: [0.19, 1, 0.22, 1],
-                delay: 5.5 + 0.05 * index,
+                delay: 5.5 + 0.2 * index,
               }}
               className={cn("inline-block", word.className)}
             >
@@ -43,13 +43,13 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
       return title.flatMap((wordObj, index) => (
         <motion.div
           key={index}
-          className={cn("inline-block", wordObj.className)}
-          initial={{ y: "40%", opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          className={cn("relative inline-block overflow-hidden", wordObj.className)}
+          initial={{  opacity: 0 }}
+          animate={{  opacity: 1 }}
           transition={{
             duration: 0.8,
             ease: [0.19, 1, 0.22, 1],
-            delay: 5.5 + 0.8 * index,
+            delay: 5.5 + 0.01 * index,
           }}
         >
           {wordObj.word.split("").map((letter, letterIndex) => (
@@ -60,9 +60,9 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
               transition={{
                 duration: 0.5,
                 ease: [0.19, 1, 0.22, 1],
-                delay: 0.8 * index + 5.5 + 0.05 * letterIndex,
+                delay: 0.5 * index + 5.5 + 0.05 * letterIndex,
               }}
-              className="inline-block"
+              className="relative inline-block"
             >
               {letter}
             </motion.span>
