@@ -6,7 +6,9 @@
     "contact": "Contact"
   },
   "HomePage": {
-    "title": ["Organization", "of", "events"],
+    "title": ["Elevate", "Your", "Event", "to"],
+    "titleSplit": ["Spectacular", "Innovative", "Remarkable"],
+
     "contact-us": "Contact us",
     "discover-now": "Discover now"
   }

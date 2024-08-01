@@ -4,10 +4,11 @@ import { useLocale, useMessages, useTranslations } from "next-intl";
 import ImageAnimation from "@/components/Home/ImageAnimation";
 import TitleAnimation from "@/components/Home/TitleAnimation";
 import { motion } from "framer-motion";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import { FlipWords } from "@/components/ui/flip-words";
 
 // Constants
 const IMAGES = [
@@ -28,19 +29,26 @@ const Home: React.FC = () => {
 
   const words = keys.map((word, index) => ({
     word,
-    className: index === keys.length - 1 ? "text-secondary" : null,
   }));
+
+  const flipWords = messages.HomePage.titleSplit;
 
   return (
     <div className="flex-1">
       <div className="container flex flex-col justify-center items-center relative size-full">
-        <div className="flex flex-col gap-10 mt-14 justify-center items-center max-w-4xl h-[400px]">
-          <TitleAnimation locale={locale} title={words} />
+        <div className="flex flex-col gap-10 mt-14 justify-center items-center max-w-4xl max-h-[500px]">
+          <div className="size-full flex">
+            <TitleAnimation
+              locale={locale}
+              title={words}
+              flipWords={flipWords}
+            />
+          </div>
           <motion.div
             initial={{ y: "-100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
-              delay: 6,
+              delay: 7,
               duration: 0.8,
               ease: [0.19, 1, 0.22, 1],
             }}

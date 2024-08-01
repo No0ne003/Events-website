@@ -6,8 +6,10 @@
     "contact": "Contact"
   },
   "HomePage": {
-    "title": ["Organisation", "des", "événements"],
-    "contact-us": "Contactez nous",
+    "title": ["Élevez", "Votre", "Événement", "à"],
+    "titleSplit": ["Spectaculaire", "Innovant", "Inoubliable"],
+
+    "contact-us": "Contactez-nous",
     "discover-now": "Découvrez maintenant"
   }
 }

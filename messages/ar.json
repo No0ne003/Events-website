@@ -1,13 +1,15 @@
 {
   "Header": {
-    "about": "حولنا",
-    "services": "الخدمات",
-    "achievements": "الإنجازات",
-    "contact": "تواصل معنا"
+    "about": "عن",
+    "services": "خدمات",
+    "achievements": "إنجازات",
+    "contact": "اتصل بنا"
   },
   "HomePage": {
-    "title": ["تنظيم", "الأحداث"],
-    "contact-us": "تواصل معنا",
+    "title": ["ارفع", "حدثك", "إلى"],
+    "titleSplit": ["رائع", "مبتكر", "لا يُنسى"],
+
+    "contact-us": "اتصل بنا",
     "discover-now": "اكتشف الآن"
   }
 }

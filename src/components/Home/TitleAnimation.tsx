@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React from "react";
+import { FlipWords } from "../ui/flip-words";
 
 interface TitleAnimationProps {
   title: {
@@ -8,16 +9,16 @@ interface TitleAnimationProps {
     className?: string;
   }[];
   locale: string;
+  flipWords: string[];
   className?: string;
 }
 
 const TitleAnimation: React.FC<TitleAnimationProps> = ({
   title,
   locale,
+  flipWords,
   className,
 }) => {
-  console.log(title);
-
   const renderTitle = () => {
     if (locale === "ar") {
       return (
@@ -43,24 +44,27 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
       return title.flatMap((wordObj, index) => (
         <motion.div
           key={index}
-          className={cn("relative inline-block overflow-hidden", wordObj.className)}
-          initial={{  opacity: 0 }}
-          animate={{  opacity: 1 }}
+          className={cn(
+            "relative inline-block overflow-hidden",
+            wordObj.className,
+          )}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{
             duration: 0.8,
             ease: [0.19, 1, 0.22, 1],
-            delay: 5.5 + 0.01 * index,
+            delay: 0.01 * index,
           }}
         >
           {wordObj.word.split("").map((letter, letterIndex) => (
             <motion.span
               key={letterIndex}
-              initial={{ y: "60%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              initial={{ y: "60%", opacity: 0, filter: "blur(8px)" }}
+              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
               transition={{
                 duration: 0.5,
                 ease: [0.19, 1, 0.22, 1],
-                delay: 0.5 * index + 5.5 + 0.05 * letterIndex,
+                delay: 0.5 * index + 0.05 * letterIndex,
               }}
               className="relative inline-block"
             >
@@ -75,21 +79,23 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
   return (
     <motion.h1
       className={cn(
-        "text-[3em] lg:text-[5.3em] font-bold flex flex-wrap gap-5 justify-center overflow-hidden",
+        "relative text-[2.3em] lg:text-[4.3em] font-bold flex flex-wrap gap-3 justify-center ",
         locale === "ar" ? "flex-row-reverse" : "flex-row",
         className,
       )}
       initial="hidden"
       animate="visible"
       variants={{
-        hidden: { opacity: 0 },
+        hidden: { opacity: 0, y: -40 },
         visible: {
           opacity: 1,
-          transition: { staggerChildren: 0.1 },
+          y: 0,
+          transition: { staggerChildren: 0.1, delay: 5.8 },
         },
       }}
     >
       {renderTitle()}
+      <FlipWords className="text-secondary" words={flipWords} duration={5000} />
     </motion.h1>
   );
 };
