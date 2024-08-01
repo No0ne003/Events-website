@@ -53,7 +53,7 @@ const Home: React.FC = () => {
               ease: [0.19, 1, 0.22, 1],
             }}
             className={cn(
-              "flex gap-8 justify-center items-center",
+              "flex gap-4 md:gap-8 justify-center items-center",
               locale === "ar" ? "flex-row-reverse" : "",
             )}
           >

@@ -10,7 +10,7 @@ const ImageAnimation: React.FC<ImageAnimationProps> = ({ images }) => {
   return (
     <motion.div
       className="absolute w-[49vw] h-[140px] md:h-[230px] lg:w-[400px] lg:h-[280px] aspect-square rounded-md overflow-hidden"
-      initial={{ scale: 1, y: "-50%" }}
+      initial={{ scale: 1, y: "0%" }}
       animate={{ scale: 2, y: "140%" }}
       transition={{
         duration: 2,

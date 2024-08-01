@@ -79,7 +79,7 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
   return (
     <motion.h1
       className={cn(
-        "relative text-[2.3em] lg:text-[4.3em] font-bold flex flex-wrap gap-3 justify-center ",
+        "relative text-[3em] lg:text-[4.3em] font-bold flex flex-wrap gap-3 justify-center ",
         locale === "ar" ? "flex-row-reverse" : "flex-row",
         className,
       )}
