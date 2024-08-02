@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React from "react";
-import { FlipWords } from "../ui/flip-words";
+import { FlipWords } from "@/components/ui/flip-words";
 
 interface TitleAnimationProps {
   title: {
