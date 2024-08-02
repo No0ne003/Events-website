@@ -13,10 +13,10 @@ const ImageAnimation: React.FC<ImageAnimationProps> = ({ images }) => {
   return (
     <motion.div
       className="w-[50vw] h-[140px] sm:w-[260px] lg:w-[360px] lg:h-[220px] border-background border-2 rounded-md overflow-hidden"
-      initial={{ scale: 1, y: isMobile ? "-50%" : "-100%" }}
+      initial={{ scale: 1, y: isMobile ? "-50vh" : "-50vh" }}
       animate={{ scale: 2, y: "0%" }}
       transition={{
-        duration: 1,
+        duration: 2,
         ease: [0.19, 1, 0.22, 1],
         delay: 5.5,
       }}

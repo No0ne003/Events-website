@@ -11,6 +11,7 @@ const Home: React.FC = () => {
   const titleSplit = t.raw("titleSplit");
   const contactUs = t("contact-us");
   const discoverNow = t("discover-now");
+  const subHeading = t("subHeading");
 
   return (
     <div className="flex-1">
@@ -20,6 +21,7 @@ const Home: React.FC = () => {
         titleSplit={titleSplit}
         contactUs={contactUs}
         discoverNow={discoverNow}
+        subHeading={subHeading}
       />
     </div>
   );

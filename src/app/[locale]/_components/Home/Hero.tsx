@@ -2,6 +2,7 @@
 import TitleAnimation from "./TitleAnimation";
 import ImageAnimation from "./ImageAnimation";
 import HeroButton from "./HeroButtons";
+import { motion } from "framer-motion";
 
 const IMAGES = [
   "/festival-agicole.jpg",
@@ -19,12 +20,14 @@ export default function Hero({
   titleSplit,
   contactUs,
   discoverNow,
+  subHeading,
 }: {
   locale: string;
   title: string[];
   titleSplit: string[];
   contactUs: string;
   discoverNow: string;
+  subHeading: string;
 }) {
   const words = title.map((word, index) => ({
     word,
@@ -39,11 +42,18 @@ export default function Hero({
             title={words}
             flipWords={titleSplit}
           />
-          <p className="text-muted-foreground text-center text-base font-medium max-w-2xl">
-            Urba events international turns your vision into reality with
-            tailored solutions that elevate your brand, captivate your audience,
-            and create unforgettable experiences.
-          </p>
+          <motion.p
+            initial={{ y: "-100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              delay: 6,
+              duration: 0.8,
+              ease: [0.19, 1, 0.22, 1],
+            }}
+            className="text-muted-foreground text-center text-base font-medium max-w-2xl"
+          >
+            {subHeading}
+          </motion.p>
         </div>
         <HeroButton
           locale={locale}
