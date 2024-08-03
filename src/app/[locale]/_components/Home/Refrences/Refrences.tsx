@@ -1,3 +1,5 @@
+import RefrencesItem from "./RefrencesItem";
+
 export default function Refrences() {
   const IMAGES = [
     "/references/central-logo.png",
@@ -11,5 +13,13 @@ export default function Refrences() {
     "/references/Volkswagen-Logo.svg",
   ];
 
-  return <h1>hello</h1>;
+  return (
+    <div className="py-8">
+      <div className="absolute left-0 flex gap-14">
+        {[...IMAGES, ...IMAGES].map((item, index) => (
+          <RefrencesItem key={index} image={item} />
+        ))}
+      </div>
+    </div>
+  );
 }
