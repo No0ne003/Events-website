@@ -1,4 +1,9 @@
+"use client";
+
+import useMeasure from "react-use-measure";
 import RefrencesItem from "./RefrencesItem";
+import { animate, useMotionValue, motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Refrences() {
   const IMAGES = [
@@ -13,13 +18,36 @@ export default function Refrences() {
     "/references/Volkswagen-Logo.svg",
   ];
 
+  let [ref, { width }] = useMeasure();
+
+  const xTranslation = useMotionValue(0);
+
+  useEffect(() => {
+    let controls;
+    let finalPosition = -width / 2 - 60;
+
+    controls = animate(xTranslation, [0, finalPosition], {
+      ease: "linear",
+      duration: 25,
+      repeat: Infinity,
+      repeatType: "loop",
+      repeatDelay: 0,
+    });
+
+    return controls.stop;
+  }, [xTranslation, width]);
+
   return (
     <div className="py-8">
-      <div className="absolute left-0 flex gap-[7.5rem]">
+      <motion.div
+        className="absolute left-0 flex gap-[7.5rem]"
+        ref={ref}
+        style={{ x: xTranslation }}
+      >
         {[...IMAGES, ...IMAGES].map((item, index) => (
           <RefrencesItem key={index} image={item} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
