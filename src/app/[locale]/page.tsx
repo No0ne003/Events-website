@@ -1,5 +1,6 @@
 import { useLocale, useMessages, useTranslations } from "next-intl";
 import Hero from "./_components/Home/Hero";
+import Refrences from "./_components/Home/Refrences";
 
 const Home: React.FC = () => {
   const locale = useLocale();
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
         discoverNow={discoverNow}
         subHeading={subHeading}
       />
+      <Refrences />
     </div>
   );
 };
