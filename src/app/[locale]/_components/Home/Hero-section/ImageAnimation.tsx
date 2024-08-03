@@ -36,7 +36,7 @@ const ImageAnimation: React.FC<ImageAnimationProps> = ({ images }) => {
           <Image
             className="w-full h-full object-cover"
             src={url}
-            alt="test"
+            alt={`Image ${index}`}
             layout="fill"
           />
         </motion.div>

@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { MobileNav } from "./MobileNav";
 import LocalSwitcher from "../local-switcher";
 import { motion } from "framer-motion";
+import { fadeInUp, transitionSettings } from "@/lib/utils";
 
 export default function Header() {
   return (
@@ -23,13 +24,10 @@ export default function Header() {
         className="absolute top-0 h-[90px] w-screen bg-gradient-to-b from-primary/20 to-transparent"
       />
       <motion.div
-        initial={{ y: "-300%" }}
-        animate={{ y: 0 }}
-        transition={{
-          delay: 5.5,
-          duration: 0.8,
-          ease: [0.19, 1, 0.22, 1],
-        }}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={transitionSettings}
         className="container flex h-14 max-w-screen-2xl items-center"
       >
         <UrbaLogo />

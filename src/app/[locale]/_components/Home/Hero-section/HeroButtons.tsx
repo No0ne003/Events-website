@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,13 +15,10 @@ export default function HeroButton({
 }) {
   return (
     <motion.div
-      initial={{ y: "-100%", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        delay: 6,
-        duration: 0.8,
-        ease: [0.19, 1, 0.22, 1],
-      }}
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+      transition={transitionSettings}
       className={cn(
         "flex gap-4 md:gap-8 justify-center items-center",
         locale === "ar" ? "flex-row-reverse" : "",
