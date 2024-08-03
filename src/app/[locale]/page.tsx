@@ -6,7 +6,6 @@ const Home: React.FC = () => {
   const t = useTranslations("HomePage");
   const messages = useMessages();
 
-  // Precompute the translations for the title and titleSplit
   const title = t.raw("title");
   const titleSplit = t.raw("titleSplit");
   const contactUs = t("contact-us");
