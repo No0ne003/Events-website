@@ -4,6 +4,7 @@ import useMeasure from "react-use-measure";
 import RefrencesItem from "./RefrencesItem";
 import { animate, useMotionValue, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { fadeInUp, transitionSettings } from "@/lib/utils";
 
 export default function Refrences() {
   const IMAGES = [
@@ -57,13 +58,10 @@ export default function Refrences() {
 
   return (
     <motion.section
-      initial={{ y: "-50%", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        delay: 6,
-        duration: 2,
-        ease: [0.19, 1, 0.22, 1],
-      }}
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+      transition={transitionSettings}
       className="py-8 overflow-x-hidden"
     >
       <motion.div
