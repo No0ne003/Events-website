@@ -15,7 +15,7 @@ export default function Refrences() {
 
   return (
     <div className="py-8">
-      <div className="absolute left-0 flex gap-14">
+      <div className="absolute left-0 flex gap-[7.5rem]">
         {[...IMAGES, ...IMAGES].map((item, index) => (
           <RefrencesItem key={index} image={item} />
         ))}
