@@ -3,7 +3,7 @@
 import useMeasure from "react-use-measure";
 import RefrencesItem from "./RefrencesItem";
 import { animate, useMotionValue, motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Refrences() {
   const IMAGES = [
@@ -17,37 +17,63 @@ export default function Refrences() {
     "/references/pepsi-logo.png",
     "/references/Volkswagen-Logo.svg",
   ];
+  const FAST_DURATION = 15;
+  const SLOW_DURATION = 65;
+
+  const [duration, setDuration] = useState(FAST_DURATION);
 
   let [ref, { width }] = useMeasure();
 
   const xTranslation = useMotionValue(0);
 
+  const [mustFinish, setMustFinish] = useState(false);
+  const [rerender, setRerender] = useState(false);
+
   useEffect(() => {
     let controls;
     let finalPosition = -width / 2 - 60;
 
-    controls = animate(xTranslation, [0, finalPosition], {
-      ease: "linear",
-      duration: 25,
-      repeat: Infinity,
-      repeatType: "loop",
-      repeatDelay: 0,
-    });
+    if (mustFinish) {
+      controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
+        ease: "linear",
+        duration: duration * (1 - xTranslation.get() / finalPosition),
+        onComplete: () => {
+          setMustFinish(false);
+          setRerender(!rerender);
+        },
+      });
+    } else {
+      controls = animate(xTranslation, [0, finalPosition], {
+        ease: "linear",
+        duration: duration,
+        repeat: Infinity,
+        repeatType: "loop",
+        repeatDelay: 0,
+      });
+    }
 
-    return controls.stop;
-  }, [xTranslation, width]);
+    return controls?.stop;
+  }, [xTranslation, width, duration, rerender]);
 
   return (
-    <div className="py-8">
+    <section className="py-8 overflow-x-hidden">
       <motion.div
-        className="absolute left-0 flex gap-[7.5rem]"
+        className="relative left-0 flex gap-8 md:gap-16 lg:gap-[7.5rem]"
         ref={ref}
         style={{ x: xTranslation }}
+        onHoverStart={() => {
+          setMustFinish(true);
+          setDuration(SLOW_DURATION);
+        }}
+        onHoverEnd={() => {
+          setMustFinish(true);
+          setDuration(FAST_DURATION);
+        }}
       >
         {[...IMAGES, ...IMAGES].map((item, index) => (
           <RefrencesItem key={index} image={item} />
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 }
