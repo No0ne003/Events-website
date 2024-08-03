@@ -56,7 +56,16 @@ export default function Refrences() {
   }, [xTranslation, width, duration, rerender]);
 
   return (
-    <section className="py-8 overflow-x-hidden">
+    <motion.section
+      initial={{ y: "-50%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        delay: 6,
+        duration: 2,
+        ease: [0.19, 1, 0.22, 1],
+      }}
+      className="py-8 overflow-x-hidden"
+    >
       <motion.div
         className="relative left-0 flex gap-8 md:gap-16 lg:gap-[7.5rem]"
         ref={ref}
@@ -69,11 +78,18 @@ export default function Refrences() {
           setMustFinish(true);
           setDuration(FAST_DURATION);
         }}
+        initial={{ y: "-50%", opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{
+          delay: 0.5,
+          duration: 2,
+          ease: [0.19, 1, 0.22, 1],
+        }}
       >
         {[...IMAGES, ...IMAGES].map((item, index) => (
           <RefrencesItem key={index} image={item} />
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
