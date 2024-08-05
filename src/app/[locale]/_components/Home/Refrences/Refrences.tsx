@@ -5,8 +5,11 @@ import RefrencesItem from "./RefrencesItem";
 import { animate, useMotionValue, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { fadeInUp, transitionSettings } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export default function Refrences() {
+  const t = useTranslations("HomePage");
+
   const IMAGES = [
     "/references/central-logo.png",
     "/references/go-sport-logo.png",
@@ -64,6 +67,7 @@ export default function Refrences() {
       transition={transitionSettings}
       className="py-8 overflow-x-hidden"
     >
+      <h1 className="text-2xl font-bold text-center">{t("our-references")}</h1>
       <motion.div
         className="relative left-0 flex gap-8 md:gap-16 lg:gap-[7.5rem]"
         ref={ref}
@@ -76,8 +80,8 @@ export default function Refrences() {
           setMustFinish(true);
           setDuration(FAST_DURATION);
         }}
-        initial={{ y: "-50%", opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{
           delay: 0.5,
           duration: 2,
