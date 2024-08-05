@@ -7,14 +7,8 @@ interface RefrencesItemProps {
 
 const RefrencesItem: React.FC<RefrencesItemProps> = ({ image }) => {
   return (
-    <div className="group relative overflow-hidden h-[150px] w-[60px] md:w-[80px] mx-5 md:mx-14 flex justify-center items-center">
-      <Image
-        src={image}
-        alt={image}
-        width={130}
-        height={600}
-        className="grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-90"
-      />
+    <div className="group relative overflow-hidden h-[100px] w-[40px] md:w-[60px] mx-5 md:mx-12 flex justify-center items-center">
+      <Image src={image} alt={image} width={130} height={600} />
     </div>
   );
 };

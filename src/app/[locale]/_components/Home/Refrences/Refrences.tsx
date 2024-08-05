@@ -27,16 +27,24 @@ export default function Refrences() {
       animate="visible"
       variants={fadeInUp}
       transition={transitionSettings}
-      className="py-8 overflow-x-hidden"
+      className="py-8 overflow-x-hidden flex flex-col gap-2 justify-center items-center"
     >
-      <h1 className="text-2xl font-bold text-center decoration-secondary underline underline-offset-4 decoration-4 font-spectral">
+      <h1 className="text-3xl md:text-5xl font-semibold font-spectral">
         {t("our-references")}
       </h1>
-      <Marquee autoFill pauseOnHover gradient gradientColor="#D6E2FF">
-        {IMAGES.map((item, index) => (
-          <RefrencesItem key={index} image={item} />
-        ))}
-      </Marquee>
+      <div className="max-w-[70vw]">
+        <Marquee
+          autoFill
+          pauseOnHover
+          gradient
+          gradientColor="#D6E2FF"
+          gradientWidth={100}
+        >
+          {IMAGES.map((item, index) => (
+            <RefrencesItem key={index} image={item} />
+          ))}
+        </Marquee>
+      </div>
     </motion.section>
   );
 }
