@@ -47,6 +47,7 @@ export function MobileNav() {
               key={link.href}
               href={`${localActive}${link.href}`}
               className={cn(
+                "font-spectral",
                 link.label === t("contact")
                   ? "bg-primary text-primary-foreground hover:text-primary w-fit text-lg rounded-full px-3 py-1"
                   : null,

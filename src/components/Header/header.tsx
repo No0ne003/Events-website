@@ -31,7 +31,7 @@ export default function Header() {
         className="container flex h-14 max-w-screen-2xl items-center"
       >
         <UrbaLogo />
-        <div className="flex-1 flex items-center justify-end space-x-8">
+        <div className="flex-1 flex items-center justify-end space-x-8 font-spectral">
           <MainNav />
           <LocalSwitcher />
           <MobileNav />

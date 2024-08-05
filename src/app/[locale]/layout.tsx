@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
+import { Spectral as FontSpectral } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
@@ -10,6 +11,12 @@ import { getMessages } from "next-intl/server";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const fontSpectral = FontSpectral({
+  subsets: ["latin"],
+  variable: "--font-spectral",
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -41,6 +48,7 @@ export default async function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans antialiased flex flex-col",
           fontSans.variable,
+          fontSpectral.variable,
         )}
       >
         <NextIntlClientProvider messages={messages}>
