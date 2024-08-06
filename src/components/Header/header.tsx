@@ -15,7 +15,6 @@ import { useLocale } from "next-intl";
 export default function Header() {
   const pathname = usePathname();
   const locale = useLocale();
-  console.log(pathname);
 
   return (
     <header className="relative py-4 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
