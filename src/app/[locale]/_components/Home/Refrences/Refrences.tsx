@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { fadeInUp, transitionSettings } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function Refrences() {
   const t = useTranslations("HomePage");
@@ -27,12 +28,18 @@ export default function Refrences() {
       animate="visible"
       variants={fadeInUp}
       transition={transitionSettings}
-      className="py-8 overflow-x-hidden flex flex-col gap-2 justify-center items-center"
+      className="py-8 overflow-x-hidden flex flex-col gap-4 justify-center items-center"
     >
-      <h1 className="text-3xl md:text-5xl font-semibold font-spectral">
-        {t("our-references")}
-      </h1>
-      <div className="max-w-[70vw]">
+      <SectionTitle title={t("our-references")} />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 1,
+          delay: 0.2,
+        }}
+        className="max-w-[70vw]"
+      >
         <Marquee
           autoFill
           pauseOnHover
@@ -44,7 +51,7 @@ export default function Refrences() {
             <RefrencesItem key={index} image={item} />
           ))}
         </Marquee>
-      </div>
+      </motion.div>
     </motion.section>
   );
 }
