@@ -38,7 +38,7 @@ export default function Refrences() {
           duration: 1,
           delay: 0.2,
         }}
-        className="max-w-[70vw]"
+        className="max-w-[90vw] sm:max-w-[70vw]"
       >
         <Marquee
           autoFill
