@@ -9,15 +9,20 @@ import { MobileNav } from "./MobileNav";
 import LocalSwitcher from "../local-switcher";
 import { motion } from "framer-motion";
 import { fadeInUp, transitionSettings } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 
 export default function Header() {
+  const pathname = usePathname();
+  const locale = useLocale();
+
   return (
     <header className="relative py-4 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <motion.div
         initial={{ y: "-300%" }}
         animate={{ y: 0 }}
         transition={{
-          delay: 5.5,
+          delay: pathname === `/${locale}` ? 5.5 : 0,
           duration: 0.8,
           ease: [0.19, 1, 0.22, 1],
         }}
@@ -27,7 +32,11 @@ export default function Header() {
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
-        transition={transitionSettings}
+        transition={{
+          delay: pathname === `/${locale}` ? 6 : 0,
+          duration: 2,
+          ease: [0.19, 1, 0.22, 1],
+        }}
         className="container flex h-14 max-w-screen-2xl items-center"
       >
         <UrbaLogo />

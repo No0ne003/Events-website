@@ -8,15 +8,23 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { Earth } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 
 const LocalSwitcher = () => {
   const router = useRouter();
-  const localActive = useLocale();
+  const pathname = usePathname();
+  const localeActive = useLocale();
+  const availableLocales = ["en", "fr", "ar"];
 
   const switchLocale = (newLocale: string) => {
-    router.replace(`/${newLocale}`);
+    const pathWithoutLocale = availableLocales.reduce((path, locale) => {
+      const regex = new RegExp(`^/${locale}`);
+      return path.replace(regex, "");
+    }, pathname);
+
+    const newPath = `/${newLocale}${pathWithoutLocale}`;
+    router.replace(newPath);
   };
 
   return (
@@ -24,7 +32,7 @@ const LocalSwitcher = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="w-10 px-0 flex gap-1">
           <Earth className="size-[1.2rem] ml-1" />
-          <p className="text-xs capitalize mr-1">{localActive}</p>
+          <p className="text-xs capitalize mr-1">{localeActive}</p>
           <span className="sr-only">language switcher</span>
         </Button>
       </DropdownMenuTrigger>
