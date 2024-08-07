@@ -28,7 +28,7 @@ export default function Refrences() {
       animate="visible"
       variants={fadeInUp}
       transition={transitionSettings}
-      className="py-8 overflow-x-hidden flex flex-col gap-4 justify-center items-center"
+      className="py-8 overflow-x-hidden flex flex-col gap-5 justify-center items-center"
     >
       <SectionTitle title={t("our-references")} />
       <motion.div
