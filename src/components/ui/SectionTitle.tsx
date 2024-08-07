@@ -1,9 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 
-const SectionTitle = ({ title }: { title: string }) => {
+const SectionTitle = ({ title, id }: { title: string; id?: string }) => {
   return (
     <motion.h2
+      id={id}
       initial={{ opacity: 0, y: -40 }}
       whileInView={{
         opacity: 1,

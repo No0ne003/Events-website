@@ -1,9 +1,9 @@
 import SectionTitle from "@/components/ui/SectionTitle";
 
-export default function ServRces() {
+export default function Services() {
   return (
     <section className="flex flex-col justify-center items-center">
-      <SectionTitle title="Our Serveces" />;
+      <SectionTitle title="Our Services" id="services" />;
     </section>
   );
 }
