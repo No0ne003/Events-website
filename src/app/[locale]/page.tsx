@@ -1,6 +1,7 @@
 import { useLocale, useMessages, useTranslations } from "next-intl";
 import Hero from "./_components/Home/Hero-section/Hero";
 import Refrences from "./_components/Home/Refrences/Refrences";
+import Serveces from "./_components/Home/Serveces/Serveces";
 
 const Home: React.FC = () => {
   const locale = useLocale();
@@ -14,7 +15,7 @@ const Home: React.FC = () => {
   const subHeading = t("subHeading");
 
   return (
-    <div className="flex-1 flex flex-col gap-20">
+    <div className="flex-1 flex flex-col gap-10">
       <Hero
         locale={locale}
         title={title}
@@ -24,6 +25,7 @@ const Home: React.FC = () => {
         subHeading={subHeading}
       />
       <Refrences />
+      <Serveces />
     </div>
   );
 };

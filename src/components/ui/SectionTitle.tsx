@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 
 const SectionTitle = ({ title }: { title: string }) => {
@@ -12,7 +13,7 @@ const SectionTitle = ({ title }: { title: string }) => {
         duration: 0.5,
         ease: [0.19, 1, 0.22, 1],
       }}
-      className="text-3xl md:text-5xl font-medium font-spectral"
+      className="text-center text-3xl md:text-5xl font-medium font-spectral"
     >
       {title}
     </motion.h2>
