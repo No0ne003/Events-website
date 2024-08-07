@@ -18,7 +18,7 @@ export function MobileNav() {
 
   const navLinks = [
     { href: "/about", label: t("about") },
-    { href: "/services", label: t("services") },
+    { href: "#services", label: t("services") },
     { href: "/achievements", label: t("achievements") },
     { href: "/contact", label: t("contact") },
   ];
