@@ -1,7 +1,7 @@
 import { useLocale, useMessages, useTranslations } from "next-intl";
 import Hero from "./_components/Home/Hero-section/Hero";
 import Refrences from "./_components/Home/Refrences/Refrences";
-import Serveces from "./_components/Home/Serveces/Serveces";
+import Services from "./_components/Home/Services/Services";
 
 const Home: React.FC = () => {
   const locale = useLocale();
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
         subHeading={subHeading}
       />
       <Refrences />
-      <Serveces />
+      <Services />
     </div>
   );
 };
