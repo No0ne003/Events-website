@@ -34,8 +34,22 @@ export default function Services() {
     },
   ];
   return (
-    <section className="flex flex-col justify-center items-center">
-      <SectionTitle title="Our Services" id="services" />;
+    <section className="container flex flex-col justify-center items-center mb-20">
+      <SectionTitle title="Our Services" id="services" />
+      <div className="flex size-full">
+        <div className="w-1/3">
+          <div className="size-full max-w-xs">
+            <ul className="flex flex-col items-start justify-center size-full ">
+              {services.map((item, index) => (
+                <li key={index} className="w-full py-4 hover:text-primary/60">
+                  {item.title}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="w-2/3"></div>
+      </div>
     </section>
   );
 }
