@@ -4,37 +4,35 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Services() {
+  const t = useTranslations("HomePage.services");
+
   const services = [
     {
-      title: "EVENT ORGANIZATION",
-      description:
-        "The field of event planning is vast, and we offer you a wide range of services from conception to organization and execution of your event. This includes sports events, cultural events, Fantasia, trade shows, corporate events, gala evenings, open house days, weddings, summer camp activities, and more.",
+      title: t("service-1.title"),
+      description: t("service-1.description"),
       image: "/services/organisation-des-evenements.png",
     },
     {
-      title: "MEDIA COVERAGE",
-      description:
-        "All your events and celebrations within the scope of event planning will be covered in terms of advertising posters, photos, and video production. Additionally, media outlets like radio, television, and social networks will create media buzz around the event in progress, maximizing communication to better reach the target audiences and make the moment unforgettable.",
+      title: t("service-2.title"),
+      description: t("service-2.description"),
       image: "/services/couvertures-mediatique.png",
     },
     {
-      title: "VISUAL COMMUNICATION",
-      description:
-        "URBA EVENTS INTERNATIONAL offers the development of graphic charters and the creation of your various communication supports: Stand (Roll-Up, Totem), Banner, Advertising poster, Flyer, Leaflet, Brochure, Logo, Business card, Badges... We also ensure the printing of your documents with our in-house printing service. Our team of designers is always available to carry out all your projects according to your desires and needs.",
+      title: t("service-3.title"),
+      description: t("service-3.description"),
       image: "/services/communication-visuelle.png",
     },
     {
-      title: "ARRANGEMENTS AND DECOR",
-      description:
-        "We design the layout of your spaces in continuity with the work of architects and project managers. We design your workspaces in 3D, fully manufacture our creations, and ensure the implementation of your project from A to Z. Our technical teams are highly qualified and work alongside us on all our projects. We offer furniture lines produced in our workshop by our own team.",
+      title: t("service-4.title"),
+      description: t("service-4.description"),
       image: "/services/amenagements-decor.png",
     },
     {
-      title: "EQUIPMENT RENTAL",
-      description:
-        "Sound and audio equipment, Lighting, Giant LED screens, Stages, Tents and tarpaulins, Structures and flooring, Bleachers, Furniture, etc...",
+      title: t("service-5.title"),
+      description: t("service-5.description"),
       image: "/services/location-materiel.png",
     },
   ];
@@ -46,11 +44,11 @@ export default function Services() {
   };
 
   return (
-    <section className="mb-20">
+    <section>
       <div className="lg:container flex flex-col justify-center items-center gap-20">
         <div className="max-lg:container space-y-2 self-start">
           <p className="uppercase text-muted-foreground italic text-sm">
-            What we do
+            {t("Header.services")}
           </p>
           <SectionTitle
             title="ELEVATE YOUR VISION WITH OUR TOUCH."
