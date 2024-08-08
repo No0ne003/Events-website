@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   const subHeading = t("subHeading");
 
   return (
-    <div className="flex-1 flex flex-col gap-10">
+    <div className="flex-1 flex flex-col gap-24">
       <Hero
         locale={locale}
         title={title}

@@ -11,6 +11,30 @@
     "contact-us": "Contact us",
     "discover-now": "Discover now",
     "subHeading": "Urba events international turns your vision into reality with tailored solutions that elevate your brand, captivate your audience, and create unforgettable experiences.",
-    "our-references": "Our refrences"
+    "our-references": "Our references",
+    "services": {
+      "what-we-do": "what we do",
+      "title": "ELEVATE YOUR VISION WITH OUR TOUCH.",
+      "service-1": {
+        "title": "EVENT ORGANIZATION",
+        "description": "The field of event planning is vast, and we offer you a wide range of services from conception to organization and execution of your event. This includes sports events, cultural events, Fantasia, trade shows, corporate events, gala evenings, open house days, weddings, summer camp activities, and more."
+      },
+      "service-2": {
+        "title": "MEDIA COVERAGE",
+        "description": "All your events and celebrations within the scope of event planning will be covered in terms of advertising posters, photos, and video production. Additionally, media outlets like radio, television, and social networks will create media buzz around the event in progress, maximizing communication to better reach the target audiences and make the moment unforgettable."
+      },
+      "service-3": {
+        "title": "VISUAL COMMUNICATION",
+        "description": "URBA EVENTS INTERNATIONAL offers the development of graphic charters and the creation of your various communication supports: Stand (Roll-Up, Totem), Banner, Advertising poster, Flyer, Leaflet, Brochure, Logo, Business card, Badges... We also ensure the printing of your documents with our in-house printing service. Our team of designers is always available to carry out all your projects according to your desires and needs."
+      },
+      "service-4": {
+        "title": "ARRANGEMENTS AND DECOR",
+        "description": "We design the layout of your spaces in continuity with the work of architects and project managers. We design your workspaces in 3D, fully manufacture our creations, and ensure the implementation of your project from A to Z. Our technical teams are highly qualified and work alongside us on all our projects. We offer furniture lines produced in our workshop by our own team."
+      },
+      "service-5": {
+        "title": "EQUIPMENT RENTAL",
+        "description": "Sound and audio equipment, Lighting, Giant LED screens, Stages, Tents and tarpaulins, Structures and flooring, Bleachers, Furniture, etc..."
+      }
+    }
   }
 }

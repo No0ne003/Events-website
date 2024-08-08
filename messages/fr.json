@@ -11,6 +11,30 @@
     "contact-us": "Contactez-nous",
     "discover-now": "Découvrez maintenant",
     "subHeading": "Urba events international transforme votre vision en réalité avec des solutions sur mesure qui élèvent votre marque, captivent votre audience et créent des expériences inoubliables.",
-    "our-references": "Nos références"
+    "our-references": "Nos références",
+    "services": {
+      "what-we-do": "CE QUE NOUS FAISONS",
+      "title": "ÉLEVEZ VOTRE VISION AVEC NOTRE TOUCHER.",
+      "service-1": {
+        "title": "ORGANISATION D'ÉVÉNEMENTS",
+        "description": "Le domaine de la planification d'événements est vaste, et nous vous offrons une large gamme de services allant de la conception à l'organisation et à l'exécution de votre événement. Cela inclut des événements sportifs, des événements culturels, Fantasia, des salons professionnels, des événements d'entreprise, des soirées de gala, des journées portes ouvertes, des mariages, des activités de camp d'été, et bien plus encore."
+      },
+      "service-2": {
+        "title": "COUVERTURE MÉDIATIQUE",
+        "description": "Tous vos événements et célébrations dans le cadre de la planification d'événements seront couverts en termes d'affiches publicitaires, de photos et de production vidéo. De plus, les médias tels que la radio, la télévision et les réseaux sociaux créeront un buzz médiatique autour de l'événement en cours, maximisant la communication pour mieux atteindre les publics cibles et rendre le moment inoubliable."
+      },
+      "service-3": {
+        "title": "COMMUNICATION VISUELLE",
+        "description": "URBA EVENTS INTERNATIONAL propose le développement de chartes graphiques et la création de vos divers supports de communication : Stand (Roll-Up, Totem), Bannière, Affiche publicitaire, Flyer, Dépliant, Brochure, Logo, Carte de visite, Badges... Nous assurons également l'impression de vos documents avec notre service d'impression interne. Notre équipe de designers est toujours disponible pour réaliser tous vos projets selon vos envies et vos besoins."
+      },
+      "service-4": {
+        "title": "AMÉNAGEMENTS ET DÉCOR",
+        "description": "Nous concevons l'aménagement de vos espaces en continuité avec le travail des architectes et des chefs de projet. Nous concevons vos espaces de travail en 3D, fabriquons entièrement nos créations et assurons la mise en œuvre de votre projet de A à Z. Nos équipes techniques sont hautement qualifiées et travaillent à nos côtés sur tous nos projets. Nous proposons des lignes de mobilier produites dans notre atelier par notre propre équipe."
+      },
+      "service-5": {
+        "title": "LOCATION DE MATÉRIEL",
+        "description": "Matériel sonore et audio, Éclairage, Écrans géants LED, Scènes, Tentes et bâches, Structures et planchers, Gradins, Mobilier, etc..."
+      }
+    }
   }
 }
