@@ -51,6 +51,7 @@ export default function Services() {
       animate="visible"
       variants={fadeInUp}
       transition={transitionSettings}
+      className="py-5"
     >
       <div className="lg:container flex flex-col justify-center items-center gap-20">
         <div
@@ -70,13 +71,21 @@ export default function Services() {
           <SectionTitle
             title={t("title")}
             id="services"
-            className="text-start"
+            className={cn(
+              "text-start",
+              locale === "ar" ? "text-end" : "text-start",
+            )}
           />
         </div>
         <div className="flex flex-col lg:flex-row max-lg:gap-5 size-full lg:h-[450px]">
           <div className="w-screen lg:w-1/3 ">
             <div className="size-full w-screen lg:max-w-xs overflow-x-scroll">
-              <ul className="flex lg:flex-col items-start justify-start size-full max-lg:px-5">
+              <ul
+                className={cn(
+                  "flex lg:flex-col items-start justify-start size-full max-lg:px-5",
+                  locale === "ar" ? "flex-row-reverse" : null,
+                )}
+              >
                 {services.map((item, index) => (
                   <ServiceListItem
                     key={index}
@@ -98,6 +107,7 @@ export default function Services() {
                     title={service.title}
                     description={service.description}
                     image={service.image}
+                    locale={locale}
                   />
                 ),
             )}
