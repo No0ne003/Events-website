@@ -40,6 +40,10 @@ export default function Services() {
 
   const [currentService, setCurrentService] = useState(0);
 
+  const handleTabClick = (index: number) => {
+    setCurrentService(index);
+  };
+
   return (
     <section className="container flex flex-col justify-center items-center mb-20">
       <SectionTitle title="Our Services" id="services" />
@@ -56,6 +60,7 @@ export default function Services() {
                       ? "bg-secondary/80 text-secondary-foreground hover:text-secondary-foreground/90"
                       : null,
                   )}
+                  onClick={() => handleTabClick(index)}
                 >
                   {item.title}
                 </li>
