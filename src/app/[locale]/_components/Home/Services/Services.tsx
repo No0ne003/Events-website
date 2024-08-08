@@ -1,38 +1,45 @@
+"use client";
+
 import SectionTitle from "@/components/ui/SectionTitle";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 export default function Services() {
   const services = [
     {
-      title: "ORGANISATION DES ÉVÉNEMENTS",
+      title: "EVENT ORGANIZATION",
       description:
-        "Le domaine de l’événementiel étant vaste, nous mettons à votre disposition de multiples services depuis la conception en passant par l’organisation jusqu’à la réalisation de votre événement. Ce serait entre événements sportifs, événements culturels, Fantasia, salons professionnels, événements d’entreprise, soirée gala, journée portes ouvertes, mariage, animation des centres d’estivage, ...",
+        "The field of event planning is vast, and we offer you a wide range of services from conception to organization and execution of your event. This includes sports events, cultural events, Fantasia, trade shows, corporate events, gala evenings, open house days, weddings, summer camp activities, and more.",
       image: "/services/organisation-des-evenements.jpeg",
     },
     {
-      title: "COUVERTURES MÉDIATIQUES",
+      title: "MEDIA COVERAGE",
       description:
-        "Toutes vos manifestations et célébrations entrant dans le cadre événementiel, seront couvertes en terme d’affiches publicitaires, de réalisation photos et vidéos. Aussi les médias, radio télévision, réseaux sociaux, feront office de tapage médiatique, créant ainsi le buzz autour de l’événement en cours de réalisation, et ce, afin de maximiser la communication pour mieux atteindre les cibles concernées et rendre le moment inoubliable.",
+        "All your events and celebrations within the scope of event planning will be covered in terms of advertising posters, photos, and video production. Additionally, media outlets like radio, television, and social networks will create media buzz around the event in progress, maximizing communication to better reach the target audiences and make the moment unforgettable.",
       image: "/services/couvertures-mediatique.jpg",
     },
     {
-      title: "COMMUNICATION VISUELLE",
+      title: "VISUAL COMMUNICATION",
       description:
-        "URBA EVENTS INTERNATIONAL vous propose l’élaboration des chartes graphiques et la création de vos différents supports de communication : Stand (Roll-Up, Totem), Banderole, Affiche publicitaire, Flyer, Dépliant, Brochure, Logo, Carte de visite, Badges… Elle vous assure aussi l’impression de vos documents grâce à son interne imprimerie. Notre équipe de designers restera toujours à votre disposition afin de réaliser tous vos projets selon vos envies et vos besoins.",
+        "URBA EVENTS INTERNATIONAL offers the development of graphic charters and the creation of your various communication supports: Stand (Roll-Up, Totem), Banner, Advertising poster, Flyer, Leaflet, Brochure, Logo, Business card, Badges... We also ensure the printing of your documents with our in-house printing service. Our team of designers is always available to carry out all your projects according to your desires and needs.",
       image: "/services/communication-visuelle.jpg",
     },
     {
-      title: "AMÉNAGEMENTS ET DÉCOR",
+      title: "ARRANGEMENTS AND DECOR",
       description:
-        "Nous imaginons l’agencement de vos espaces en continuité avec le travail des architectes et maîtres d’œuvre. Nous concevons en 3D vos espaces de travail. Nous fabriquons intégralement nos créations et assurons l’implantation de votre projet de A à Z. Nos équipes techniques sont hautement qualifiées et travaillent à nos côtés sur l’ensemble de nos projets. Nous vous proposons des lignes de mobiliers produites dans notre atelier par nos soins.",
+        "We design the layout of your spaces in continuity with the work of architects and project managers. We design your workspaces in 3D, fully manufacture our creations, and ensure the implementation of your project from A to Z. Our technical teams are highly qualified and work alongside us on all our projects. We offer furniture lines produced in our workshop by our own team.",
       image: "/services/amenagements-decor.jpg",
     },
     {
-      title: "LOCATION MATÉRIEL",
+      title: "EQUIPMENT RENTAL",
       description:
-        "Sonorisation et matériels audio, Éclairage, Écrans géants à LED, Scènes, Chapiteaux et dalots, Structures et planchers, Gradins, mobilier, etc...",
+        "Sound and audio equipment, Lighting, Giant LED screens, Stages, Tents and tarpaulins, Structures and flooring, Bleachers, Furniture, etc...",
       image: "/services/location-materiel.jpg",
     },
   ];
+
+  const [currentService, setCurrentService] = useState(0);
+
   return (
     <section className="container flex flex-col justify-center items-center mb-20">
       <SectionTitle title="Our Services" id="services" />
@@ -41,7 +48,15 @@ export default function Services() {
           <div className="size-full max-w-xs">
             <ul className="flex flex-col items-start justify-center size-full ">
               {services.map((item, index) => (
-                <li key={index} className="w-full py-4 hover:text-primary/60">
+                <li
+                  key={index}
+                  className={cn(
+                    "w-full py-4 px-3 hover:text-secondary/80 cursor-pointer",
+                    index === currentService
+                      ? "bg-secondary/80 text-secondary-foreground hover:text-secondary-foreground/90"
+                      : null,
+                  )}
+                >
                   {item.title}
                 </li>
               ))}
