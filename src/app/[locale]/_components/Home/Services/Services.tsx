@@ -1,10 +1,11 @@
 "use client";
 
 import SectionTitle from "@/components/ui/SectionTitle";
-import { cn } from "@/lib/utils";
+import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 export default function Services() {
   const t = useTranslations("HomePage.services");
@@ -44,7 +45,12 @@ export default function Services() {
   };
 
   return (
-    <section>
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+      transition={transitionSettings}
+    >
       <div className="lg:container flex flex-col justify-center items-center gap-20">
         <div className="max-lg:container space-y-2 self-start">
           <p className="uppercase text-muted-foreground italic text-sm">
@@ -61,7 +67,20 @@ export default function Services() {
             <div className="size-full w-screen lg:max-w-xs overflow-x-scroll">
               <ul className="flex lg:flex-col items-start justify-start size-full max-lg:px-5">
                 {services.map((item, index) => (
-                  <li
+                  <motion.li
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.19, 1, 0.22, 1],
+                      delay: 0.03 * index,
+                    }}
                     className={cn(
                       "flex items-center w-full h-[60px] py-4 px-3 hover:text-secondary/80 cursor-pointer uppercase max-lg:text-xs",
                       index === currentService
@@ -72,7 +91,7 @@ export default function Services() {
                     key={index}
                   >
                     {item.title}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
@@ -84,11 +103,25 @@ export default function Services() {
                   className="relative flex flex-col md:flex-row justify-end items-center gap-5"
                   key={index}
                 >
-                  <div className="self-start z-20 max-w-xl lg:mt-10 bg-background/20 backdrop-blur-3xl rounded-lg lg:absolute lg:left-0">
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: 40,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.19, 1, 0.22, 1],
+                    }}
+                    className="self-start z-20 max-w-xl lg:mt-10 bg-background/20 backdrop-blur-3xl rounded-lg lg:absolute lg:left-0"
+                  >
                     <p className="text-muted-foregroun py-5 px-3 leading-relaxed">
                       {service.description}
                     </p>
-                  </div>
+                  </motion.div>
 
                   <Image
                     src={service.image}
@@ -103,6 +136,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
