@@ -3,13 +3,14 @@
 import SectionTitle from "@/components/ui/SectionTitle";
 import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
 import { useState, useMemo } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import ServiceListItem from "./ServiceListItem";
 import ServiceDetail from "./ServiceDetail";
 
 export default function Services() {
   const t = useTranslations("HomePage.services");
+  const locale = useLocale();
 
   const services = useMemo(
     () => [
@@ -52,12 +53,22 @@ export default function Services() {
       transition={transitionSettings}
     >
       <div className="lg:container flex flex-col justify-center items-center gap-20">
-        <div className="max-lg:container space-y-2 self-start">
-          <p className="uppercase text-muted-foreground italic text-sm">
-            {t("Header.services")}
+        <div
+          className={cn(
+            "max-lg:container space-y-2",
+            locale === "ar" ? "self-end" : "self-start",
+          )}
+        >
+          <p
+            className={cn(
+              "uppercase text-muted-foreground italic text-sm",
+              locale === "ar" ? "text-end" : null,
+            )}
+          >
+            {t("what-we-do")}
           </p>
           <SectionTitle
-            title="ELEVATE YOUR VISION WITH OUR TOUCH."
+            title={t("title")}
             id="services"
             className="text-start"
           />
