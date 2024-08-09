@@ -18,9 +18,9 @@ const ServiceListItem: React.FC<ServiceListItemProps> = ({
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{
-      duration: 0.3,
+      duration: 0.8,
       ease: [0.19, 1, 0.22, 1],
-      delay: 0.03 * index,
+      delay: 0.08 * index,
     }}
     className={cn(
       "flex items-center w-full h-[60px] py-4 px-3 hover:text-secondary/80 cursor-pointer uppercase max-lg:text-xs",
