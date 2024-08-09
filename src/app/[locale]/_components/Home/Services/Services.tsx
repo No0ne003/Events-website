@@ -51,7 +51,7 @@ export default function Services() {
       animate="visible"
       variants={fadeInUp}
       transition={transitionSettings}
-      className="py-5"
+      className="py-10 bg-gradient-to-t from-primary/20 to-transparent"
     >
       <div className="lg:container flex flex-col justify-center items-center gap-20">
         <div

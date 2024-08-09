@@ -35,6 +35,15 @@
         "title": "LOCATION DE MATÉRIEL",
         "description": "Matériel sonore et audio, Éclairage, Écrans géants LED, Scènes, Tentes et bâches, Structures et planchers, Gradins, Mobilier, etc..."
       }
+    },
+    "about-us": {
+      "title": "À Propos",
+      "description": [
+        "URBA EVENTS INTERNATIONAL est une agence de communication et d'événement spécialisée dans la conception, le développement et l'organisation d'événements sportifs et culturels.",
+        "Avec une solide expertise et une expérience pratique, l'équipe d'URBA EVENTS INTERNATIONAL offre un service sur mesure, de la définition du concept à l'exécution.",
+        "Nous fournissons à nos clients et partenaires des outils de communication événementielle qui génèrent de la notoriété, des opportunités commerciales et des partenariats.",
+        "Choisir de travailler avec URBA EVENTS INTERNATIONAL, c'est opter pour des idées innovantes, créatives et originales."
+      ]
     }
   }
 }
