@@ -40,13 +40,7 @@ export default function Refrences() {
         }}
         className="max-w-[90vw] sm:max-w-[70vw]"
       >
-        <Marquee
-          autoFill
-          pauseOnHover
-          gradient
-          gradientColor="#D6E2FF"
-          gradientWidth={100}
-        >
+        <Marquee autoFill gradient gradientColor="#D6E2FF" gradientWidth={100}>
           {IMAGES.map((item, index) => (
             <RefrencesItem key={index} image={item} />
           ))}
