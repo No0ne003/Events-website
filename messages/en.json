@@ -35,6 +35,15 @@
         "title": "EQUIPMENT RENTAL",
         "description": "Sound and audio equipment, Lighting, Giant LED screens, Stages, Tents and tarpaulins, Structures and flooring, Bleachers, Furniture, etc..."
       }
+    },
+    "about-us": {
+      "title": "about us",
+      "description": [
+        "URBA EVENTS INTERNATIONAL is a communication and event agency specializing in the design, development, and organization of sports and cultural events.",
+        "With a strong expertise and hands-on experience, the URBA EVENTS INTERNATIONAL team offers a tailor-made service, from concept definition to execution.",
+        "We provide our clients and partners with event communication tools that generate brand awareness, business opportunities, and partnerships.",
+        "Choosing to work with URBA EVENTS INTERNATIONAL means opting for innovative, creative, and original ideas."
+      ]
     }
   }
 }
