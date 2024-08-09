@@ -6,8 +6,8 @@ export default function About() {
   return (
     <section className="py-16 flex flex-col gap-10 bg-primary/20">
       <SectionTitle title="About Us" />
-      <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 px-4 md:px-8">
-        <div className="relative w-full md:w-1/2 h-full">
+      <div className="container flex flex-col lg:flex-row items-center gap-10 px-4 lg:px-8">
+        <div className="relative w-full lg:w-1/2 h-full self-start overflow-hidden">
           <Image
             src="/semi-marathon-2.jpg"
             alt="marathon"
@@ -16,10 +16,10 @@ export default function About() {
             height={400}
             className="rounded-lg shadow-lg"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent rounded-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent rounded-lg pointer-events-none"></div>
         </div>
 
-        <div className="w-full md:w-1/2 flex flex-col justify-center gap-5 p-6">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center gap-5 p-6">
           <div className="max-w-2xl flex flex-col gap-4 leading-relaxed">
             <p>
               <strong className="text-foreground/80">
