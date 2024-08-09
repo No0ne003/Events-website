@@ -1,14 +1,13 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUp, transitionSettings } from "@/lib/utils";
 
-// Constants
 const BOLD_TEXT_HTML =
-  "<strong class='text-foreground/80'>أوربا إيفينتس الدولية</strong>";
+  "<strong class='text-foreground/80'>URBA EVENTS INTERNATIONAL</strong>";
 
 const fadeInAnimation = {
   initial: { opacity: 0, y: 20 },
@@ -23,6 +22,7 @@ export default function About() {
   const t = useTranslations("HomePage.about-us");
   const title = t.raw("title");
   const description = t.raw("description");
+  const locale = useLocale();
 
   return (
     <motion.section
@@ -56,7 +56,7 @@ export default function About() {
             {description.map((paragraph, index) => (
               <motion.p
                 key={index}
-                className="text-end"
+                className={locale === "ar" ? "text-end" : null}
                 {...fadeInAnimation}
                 transition={{
                   ...fadeInAnimation.transition,
