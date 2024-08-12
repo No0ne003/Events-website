@@ -53,7 +53,7 @@ export default function Header() {
 export function UrbaLogo() {
   return (
     <Link href="/" className="flex self-end shadow-primary">
-      <Icons.logo width={160} height={13} />
+      <Icons.logo src="/logo-urba.png" alt="urba logo" className="mr-2" />
       <span className="sr-only">{siteConfig.name}</span>
     </Link>
   );
