@@ -1,12 +1,13 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { QuoteIcon } from "lucide-react";
-import { fadeInUp, transitionSettings } from "@/lib/utils";
+import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
 
 export default function Quote() {
   const t = useTranslations("HomePage");
   const quote = t("quote");
+  const locale = useLocale();
 
   return (
     <motion.section
@@ -25,10 +26,25 @@ export default function Quote() {
             once: true,
           }}
         >
-          <p className="lg:text-lg font-semibold leading-relaxed font-spectral mx-auto flex justify-center max:max-w-xs">
-            <QuoteIcon className="size-10 lg:size-6 fill-secondary transform -scale-x-100" />
+          <p
+            className={cn(
+              "lg:text-lg font-semibold leading-relaxed font-spectral mx-auto flex justify-center max:max-w-xs",
+              locale ? "flex-row-reverse" : null,
+            )}
+          >
+            <QuoteIcon
+              className={cn(
+                "size-10 lg:size-6 fill-secondary",
+                locale ? null : "transform -scale-x-100",
+              )}
+            />
             {quote}
-            <QuoteIcon className="size-10 lg:size-6 fill-secondary self-end" />
+            <QuoteIcon
+              className={cn(
+                "size-10 lg:size-6 fill-secondary self-end",
+                locale ? "transform -scale-x-100" : null,
+              )}
+            />
           </p>
         </motion.div>
       </div>
