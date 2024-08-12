@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -21,7 +22,7 @@ const fadeInAnimation = {
 export default function About() {
   const t = useTranslations("HomePage.about-us");
   const title = t.raw("title");
-  const description = t.raw("description");
+  const description: string[] = t.raw("description");
   const locale = useLocale();
 
   return (
@@ -53,7 +54,7 @@ export default function About() {
 
         <div className="w-full lg:w-1/2 flex flex-col justify-center gap-5 p-6">
           <div className="max-w-2xl flex flex-col gap-4 leading-relaxed">
-            {description.map((paragraph, index) => (
+            {description.map((paragraph: string, index: number) => (
               <motion.p
                 key={index}
                 className={locale === "ar" ? "text-end" : null}
