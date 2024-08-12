@@ -3,6 +3,7 @@ import Hero from "./_components/Home/Hero-section/Hero";
 import Refrences from "./_components/Home/Refrences/Refrences";
 import Services from "./_components/Home/Services/Services";
 import About from "./_components/Home/About/About";
+import Quote from "./_components/Home/Quote/Quote";
 
 const Home: React.FC = () => {
   const locale = useLocale();
@@ -28,6 +29,7 @@ const Home: React.FC = () => {
       <Refrences />
       <Services />
       <About />
+      <Quote />
     </div>
   );
 };
