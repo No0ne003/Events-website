@@ -38,6 +38,9 @@ export default function About() {
         <motion.div
           {...fadeInAnimation}
           transition={{ ...fadeInAnimation.transition, delay: 0.3 }}
+          viewport={{
+            once: true,
+          }}
           className="relative w-full lg:w-1/2 h-full overflow-hidden"
         >
           <Image
@@ -61,6 +64,9 @@ export default function About() {
                 transition={{
                   ...fadeInAnimation.transition,
                   delay: 0.08 * index,
+                }}
+                viewport={{
+                  once: true,
                 }}
                 dangerouslySetInnerHTML={{
                   __html: paragraph.replace(

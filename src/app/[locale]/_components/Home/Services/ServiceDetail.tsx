@@ -20,6 +20,9 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: [0.19, 1, 0.22, 1] }}
+      viewport={{
+        once: true,
+      }}
       className="self-start z-20 max-w-xl lg:mt-10 bg-background/20 backdrop-blur-3xl rounded-lg lg:absolute lg:left-0"
     >
       <p

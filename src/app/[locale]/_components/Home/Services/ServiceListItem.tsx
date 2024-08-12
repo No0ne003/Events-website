@@ -22,6 +22,9 @@ const ServiceListItem: React.FC<ServiceListItemProps> = ({
       ease: [0.19, 1, 0.22, 1],
       delay: 0.08 * index,
     }}
+    viewport={{
+      once: true,
+    }}
     className={cn(
       "flex items-center w-full h-[60px] py-4 px-3 hover:text-secondary/80 cursor-pointer uppercase max-lg:text-xs",
       isActive
