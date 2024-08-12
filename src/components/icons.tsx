@@ -1,3 +1,5 @@
+
+// Icons.tsx
 import Image from "next/image";
 
 // Define the props for the `Image` component and `SVG` elements separately
@@ -5,8 +7,8 @@ type ImageProps = React.ComponentProps<typeof Image>;
 type IconProps = React.SVGProps<SVGSVGElement>;
 
 export const Icons = {
-  logo: (props: ImageProps) => (
-    <Image src="/logo-urba.png" alt="urba logo" {...props} />
+  logo: ({ src = "/logo-urba.png", alt = "urba logo", width = 160, height = 13, className, ...props }: ImageProps) => (
+    <Image src={src} alt={alt} width={width} height={height} className={className} {...props} />
   ),
   tei: (props: IconProps) => (
     <svg
@@ -22,3 +24,4 @@ export const Icons = {
     </svg>
   ),
 };
+
