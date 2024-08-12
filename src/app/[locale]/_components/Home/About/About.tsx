@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeInUp, transitionSettings } from "@/lib/utils";
+import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
 
 const BOLD_TEXT_HTML =
   "<strong class='text-foreground/80'>URBA EVENTS INTERNATIONAL</strong>";
@@ -57,7 +57,7 @@ export default function About() {
             {description.map((paragraph: string, index: number) => (
               <motion.p
                 key={index}
-                className={locale === "ar" ? "text-end" : null}
+                className={cn(locale === "ar" ? "text-end" : null)}
                 {...fadeInAnimation}
                 transition={{
                   ...fadeInAnimation.transition,
