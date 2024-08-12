@@ -29,20 +29,20 @@ export default function Quote() {
           <p
             className={cn(
               "lg:text-lg font-semibold leading-relaxed font-spectral mx-auto flex justify-center max:max-w-xs",
-              locale ? "flex-row-reverse" : null,
+              locale === "ar" ? "flex-row-reverse" : null,
             )}
           >
             <QuoteIcon
               className={cn(
                 "size-10 lg:size-6 fill-secondary",
-                locale ? null : "transform -scale-x-100",
+                locale === "ar" ? null : "transform -scale-x-100",
               )}
             />
             {quote}
             <QuoteIcon
               className={cn(
                 "size-10 lg:size-6 fill-secondary self-end",
-                locale ? "transform -scale-x-100" : null,
+                locale === "ar" ? "transform -scale-x-100" : null,
               )}
             />
           </p>
