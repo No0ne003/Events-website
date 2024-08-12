@@ -32,7 +32,7 @@ export default function About() {
       transition={transitionSettings}
       className="py-16 flex flex-col gap-10 bg-primary/20"
     >
-      <SectionTitle title={title} />
+      <SectionTitle title={title} id="about" />
 
       <div className="container flex flex-col lg:flex-row items-center gap-10 px-4 lg:px-8">
         <motion.div

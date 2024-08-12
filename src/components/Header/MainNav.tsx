@@ -32,8 +32,8 @@ export function MainNav() {
   const t = useTranslations("Header");
 
   const navLinks = [
-    { href: "/about", label: t("about") },
     { href: "#services", label: t("services") },
+    { href: "#about", label: t("about") },
     { href: "/achievements", label: t("achievements") },
     { href: "/contact", label: t("contact") },
   ];
@@ -41,7 +41,12 @@ export function MainNav() {
   const localActive = useLocale();
 
   return (
-    <nav className="flex items-center space-x-4 lg:space-x-6">
+    <nav
+      className={cn(
+        "flex items-center gap-4 lg:gap-6",
+        localActive ? "flex-row-reverse" : null,
+      )}
+    >
       {navLinks.map((link) => (
         <NavLink
           key={link.href}
