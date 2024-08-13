@@ -6,6 +6,8 @@ import { validationSchema } from "@/lib/validation";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { InputClassName } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Loader } from "lucide-react";
 
 type FormValues = {
   name: string;
@@ -31,7 +33,7 @@ export default function ContactForm() {
         headOffice: "",
         message: "",
       }}
-      validationSchema={validationSchema}
+      validationSchema={toFormikValidationSchema(validationSchema)}
       onSubmit={handleSubmit}
     >
       <Form className="container max-w-3xl py-8 space-y-6">
@@ -114,7 +116,23 @@ export default function ContactForm() {
             className="text-rose-700"
           />
         </div>
+        <SubmitButton pending={isLoading} />
       </Form>
     </Formik>
+  );
+}
+
+function SubmitButton({ pending }: { pending: boolean }) {
+  return (
+    <Button type="submit" disabled={pending}>
+      {pending ? (
+        <div className="flex gap-2 items-center">
+          <Loader size="16" className="animate-spin" />
+          <span>Saving...</span>
+        </div>
+      ) : (
+        "Save"
+      )}
+    </Button>
   );
 }
