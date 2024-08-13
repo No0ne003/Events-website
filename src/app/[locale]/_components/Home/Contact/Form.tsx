@@ -177,10 +177,10 @@ function SubmitButton({ pending }: { pending: boolean }) {
       {pending ? (
         <div className="flex gap-2 items-center">
           <Loader size="16" className="animate-spin" />
-          <span>Saving...</span>
+          <span>Submiting...</span>
         </div>
       ) : (
-        "Save"
+        "Submit"
       )}
     </Button>
   );
