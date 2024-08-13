@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section className="py-16">
       <div className="container">
-        <SectionTitle title="Contact Us" id="Contact" />
+        <SectionTitle title="Contact Us" id="contact" />
         <ContactForm />
       </div>
     </section>

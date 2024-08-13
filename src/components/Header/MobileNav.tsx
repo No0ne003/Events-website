@@ -17,10 +17,10 @@ export function MobileNav() {
   const localActive = useLocale();
 
   const navLinks = [
-    { href: "/about", label: t("about") },
+    { href: "#about", label: t("about") },
     { href: "#services", label: t("services") },
     { href: "/achievements", label: t("achievements") },
-    { href: "/contact", label: t("contact") },
+    { href: "#contact", label: t("contact") },
   ];
 
   return (
