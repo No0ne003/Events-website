@@ -25,6 +25,7 @@
     "nodemailer-smtp-transport": "^2.7.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-email": "^2.1.6",
     "react-fast-marquee": "^1.6.5",
     "react-responsive": "^10.0.0",
     "tailwind-merge": "^2.4.0",

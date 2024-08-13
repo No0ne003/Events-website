@@ -20,8 +20,39 @@ type FormValues = {
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (values: FormValues) => {
-    console.log(values);
+  const handleSubmit = async (
+    values: FormValues,
+    {
+      setSubmitting,
+      resetForm,
+    }: {
+      setSubmitting: (isSubmitting: boolean) => void;
+      resetForm: () => void;
+    },
+  ) => {
+    try {
+      setIsLoading(true);
+      // Send email using Nodemailer
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      // Reset the form
+      resetForm();
+
+      // Show success message or redirect to a thank you page
+      console.log("Email sent successfully!");
+    } catch (error) {
+      // Handle error
+      console.error("Failed to send email:", error);
+    } finally {
+      setSubmitting(false);
+      setIsLoading(false);
+    }
   };
 
   return (
