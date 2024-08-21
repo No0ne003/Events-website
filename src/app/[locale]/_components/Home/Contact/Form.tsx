@@ -8,7 +8,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { InputClassName } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
-import { ToastContainer, toast } from "react-toastify";
+import { Toaster, toast } from "sonner";
 
 type FormValues = {
   name: string;
@@ -51,6 +51,7 @@ export default function ContactForm() {
     } catch (error) {
       // Handle error
       console.error("Failed to send email:", error);
+      toast.error("Form submitted error");
     } finally {
       toast.success("Form submitted successfully!");
       setSubmitting(false);
@@ -155,18 +156,7 @@ export default function ContactForm() {
           <SubmitButton pending={isLoading} />
         </Form>
       </Formik>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <Toaster position="top-right" richColors />
     </>
   );
 }

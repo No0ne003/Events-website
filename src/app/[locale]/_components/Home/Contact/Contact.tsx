@@ -6,7 +6,10 @@ export default function Contact() {
     <section className="py-16">
       <div className="container">
         <SectionTitle title="Contact Us" id="contact" />
-        <ContactForm />
+        <div className="flex justify-center items-center">
+          <p>hello hello</p>
+          <ContactForm />
+        </div>
       </div>
     </section>
   );
