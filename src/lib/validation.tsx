@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+const mobileNumberPattern = /^\d{10,15}$/;
+
 export const validationSchema = z.object({
   name: z.string({
     required_error: "Name is required.",
@@ -8,12 +10,13 @@ export const validationSchema = z.object({
     required_error: "head office is required",
   }),
   mobileNumber: z
-    .string()
-    .nonempty({ message: "Mobile number is required." })
-    .transform((value) => Number(value))
-    .refine((value) => !isNaN(value), {
-      message: "Mobile number must be a valid number.",
-    }),
+    .string({
+      required_error: "Mobile number is required.",
+    })
+    .regex(
+      mobileNumberPattern,
+      "Mobile number must be between 10 and 15 digits",
+    ),
   email: z
     .string({
       required_error: "Email is required.",
