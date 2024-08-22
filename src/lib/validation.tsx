@@ -7,9 +7,14 @@ export const validationSchema = z.object({
   headOffice: z.string({
     required_error: "head office is required",
   }),
-  mobileNumber: z.number({
-    required_error: "mobile number is required",
-  }),
+  mobileNumber: z
+    .string()
+    .nonempty({ message: "Mobile number is required." }) // Ensure it's not empty
+    .transform((value) => Number(value)) // Transform to number
+    .refine((value) => !isNaN(value), {
+      // Ensure it's a valid number
+      message: "Mobile number must be a valid number.",
+    }),
   email: z
     .string({
       required_error: "Email is required.",

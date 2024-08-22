@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 type FormValues = {
   name: string;
   email: string;
-  mobileNumber: number;
+  mobileNumber: string;
   headOffice: string;
   message: string;
 };
@@ -54,7 +54,7 @@ export default function ContactForm() {
       setShowConfetti(true);
     } catch (error) {
       console.error("Failed to send email:", error);
-      toast.error("There was an issue submitting the form.");
+      toast.error("Thereu was an issue submitting the form.");
     } finally {
       setSubmitting(false);
       setIsLoading(false);
@@ -67,7 +67,7 @@ export default function ContactForm() {
         initialValues={{
           name: "",
           email: "",
-          mobileNumber: 0,
+          mobileNumber: "",
           headOffice: "",
           message: "",
         }}
@@ -112,7 +112,7 @@ export default function ContactForm() {
               {
                 label: t("mobileNumber"),
                 id: "mobileNumber",
-                type: "number",
+                type: "string",
                 name: "mobileNumber",
               },
               {
