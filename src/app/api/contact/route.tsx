@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-
 import { render } from "@react-email/components";
-
 import { transporter, smtpEmail } from "@/lib/nodemailer";
-
 import { Email } from "@/components/email";
+
+export const maxDuration = 60; // This function can run for a maximum of 5 seconds
 
 export async function POST(req: NextRequest, res: NextResponse) {
   const body = await req.json();
@@ -30,6 +29,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   try {
     // Send email using the transporter
     await transporter.sendMail(options);
+    console.log(transporter)
   } catch (error) {
     console.error("Failed to send email:", error);
   }

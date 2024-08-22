@@ -52,6 +52,7 @@ export default function ContactForm() {
       resetForm();
       toast.success("Form submitted successfully!");
       setShowConfetti(true);
+      console.log(response)
     } catch (error) {
       console.error("Failed to send email:", error);
       toast.error("Thereu was an issue submitting the form.");
