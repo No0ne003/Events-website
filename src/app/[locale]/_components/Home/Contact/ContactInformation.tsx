@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -33,7 +34,9 @@ export default function ContactInformation() {
           <p className="font-semibold">{t("email")}</p>
         </div>
         <div className="pl-7">
-          <p>{siteConfig.email}</p>
+          <Button variant={"link"} className="text-md p-0" asChild>
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          </Button>
         </div>
       </div>
     </div>
