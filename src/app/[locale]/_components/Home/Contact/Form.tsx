@@ -69,7 +69,7 @@ export default function ContactForm() {
         validationSchema={toFormikValidationSchema(validationSchema)}
         onSubmit={handleSubmit}
       >
-        <Form className="container max-w-3xl py-8 space-y-6">
+        <Form className="size-full max-w-3xl p-8 space-y-6">
           <div className="flex flex-wrap -mx-5">
             {[
               { label: "Name", id: "name", type: "text", name: "name" },
