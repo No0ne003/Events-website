@@ -9,10 +9,9 @@ export const validationSchema = z.object({
   }),
   mobileNumber: z
     .string()
-    .nonempty({ message: "Mobile number is required." }) // Ensure it's not empty
-    .transform((value) => Number(value)) // Transform to number
+    .nonempty({ message: "Mobile number is required." })
+    .transform((value) => Number(value))
     .refine((value) => !isNaN(value), {
-      // Ensure it's a valid number
       message: "Mobile number must be a valid number.",
     }),
   email: z
