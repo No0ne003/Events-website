@@ -1,14 +1,22 @@
+"use client"
 import SectionTitle from "@/components/ui/SectionTitle";
 import ContactForm from "./Form";
 import ContactInformation from "./ContactInformation";
 import { useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
+import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const t = useTranslations("HomePage.contact");
 
   return (
-    <section className="py-16">
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+      transition={transitionSettings}
+
+      className="py-16">
       <div className="container">
         <SectionTitle title={t("title")} id="contact" />
         <div
@@ -18,6 +26,6 @@ export default function Contact() {
           <ContactForm />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
