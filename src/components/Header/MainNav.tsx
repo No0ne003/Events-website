@@ -35,7 +35,7 @@ export function MainNav() {
     { href: "#services", label: t("services") },
     { href: "#about", label: t("about") },
     { href: "/achievements", label: t("achievements") },
-    { href: "/contact", label: t("contact") },
+    { href: "#contact", label: t("contact") },
   ];
 
   const localActive = useLocale();

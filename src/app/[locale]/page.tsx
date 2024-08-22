@@ -4,6 +4,7 @@ import Refrences from "./_components/Home/Refrences/Refrences";
 import Services from "./_components/Home/Services/Services";
 import About from "./_components/Home/About/About";
 import Quote from "./_components/Home/Quote/Quote";
+import Contact from "./_components/Home/Contact/Contact";
 
 const Home: React.FC = () => {
   const locale = useLocale();
@@ -30,6 +31,7 @@ const Home: React.FC = () => {
       <Services />
       <About />
       <Quote />
+      <Contact />
     </div>
   );
 };
