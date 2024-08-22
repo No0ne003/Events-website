@@ -45,6 +45,25 @@
         "Choisir de travailler avec URBA EVENTS INTERNATIONAL, c'est opter pour des idées innovantes, créatives et originales."
       ]
     },
-    "quote": "L’organisation d’un évènement nécessite l’art, créativité et bonne gestion. Notre clé de voute est de produire l’exceptionnelle et satisfaire vos attentes"
+    "quote": "L’organisation d’un évènement nécessite l’art, créativité et bonne gestion. Notre clé de voute est de produire l’exceptionnelle et satisfaire vos attentes",
+    "contact": {
+      "title": "Contactez-nous",
+      "contactInformation": {
+        "address": "Adresse",
+        "phone": "Téléphone",
+        "email": "Email"
+      },
+      "form": {
+        "name": "Nom",
+        "email": "Email",
+        "mobileNumber": "Numéro de téléphone",
+        "headOffice": "Siège social",
+        "message": "Message",
+        "submit": "Envoyer",
+        "submitting": "Envoi en cours...",
+        "success": "Le formulaire a été soumis avec succès !",
+        "error": "Un problème est survenu lors de l'envoi du formulaire."
+      }
+    }
   }
 }

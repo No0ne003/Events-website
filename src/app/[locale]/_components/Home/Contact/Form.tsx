@@ -9,6 +9,8 @@ import { InputClassName } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { Toaster, toast } from "sonner";
+import { useLocale, useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 
 type FormValues = {
   name: string;
@@ -21,6 +23,9 @@ type FormValues = {
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+
+  const t = useTranslations("HomePage.contact.form");
+  const locale = useLocale();
 
   const handleSubmit = async (
     values: FormValues,
@@ -70,10 +75,15 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
       >
         <Form className="size-full max-w-3xl p-8 space-y-6">
-          <div className="flex flex-wrap -mx-5">
+          <div
+            className={cn(
+              "flex flex-wrap -mx-5",
+              locale === "ar" ? "flex-row-reverse" : null,
+            )}
+          >
             {[
-              { label: "Name", id: "name", type: "text", name: "name" },
-              { label: "Email", id: "email", type: "email", name: "email" },
+              { label: t("name"), id: "name", type: "text", name: "name" },
+              { label: t("email"), id: "email", type: "email", name: "email" },
             ].map(({ label, id, type, name }) => (
               <div key={id} className="w-full md:w-1/2 px-5 mb-4 space-y-2">
                 <Label htmlFor={id}>{label}</Label>
@@ -92,16 +102,21 @@ export default function ContactForm() {
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap -mx-5">
+          <div
+            className={cn(
+              "flex flex-wrap -mx-5",
+              locale === "ar" ? "flex-row-reverse" : null,
+            )}
+          >
             {[
               {
-                label: "Mobile Number",
+                label: t("mobileNumber"),
                 id: "mobileNumber",
                 type: "number",
                 name: "mobileNumber",
               },
               {
-                label: "Head Office",
+                label: t("headOffice"),
                 id: "headOffice",
                 type: "text",
                 name: "headOffice",
@@ -125,7 +140,7 @@ export default function ContactForm() {
             ))}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
+            <Label htmlFor="message">{t("message")}</Label>
             <Field
               className={TextareaClassName}
               id="message"
@@ -139,7 +154,7 @@ export default function ContactForm() {
               className="text-rose-700"
             />
           </div>
-          <SubmitButton pending={isLoading} />
+          <SubmitButton pending={isLoading} t={t} />
         </Form>
       </Formik>
       <Toaster position="top-right" richColors />
@@ -147,16 +162,16 @@ export default function ContactForm() {
   );
 }
 
-function SubmitButton({ pending }: { pending: boolean }) {
+function SubmitButton({ pending, t }) {
   return (
     <Button type="submit" disabled={pending}>
       {pending ? (
         <div className="flex gap-2 items-center">
           <Loader size="16" className="animate-spin" />
-          <span>Submitting...</span>
+          <span>{t("submitting")}</span>
         </div>
       ) : (
-        "Submit"
+        t("submit")
       )}
     </Button>
   );

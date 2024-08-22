@@ -45,6 +45,25 @@
         "Choosing to work with URBA EVENTS INTERNATIONAL means opting for innovative, creative, and original ideas."
       ]
     },
-    "quote": "Organizing an event requires art, creativity, and good management. Our cornerstone is to produce the exceptional and meet your expectations."
+    "quote": "Organizing an event requires art, creativity, and good management. Our cornerstone is to produce the exceptional and meet your expectations.",
+    "contact": {
+      "title": "Contact Us",
+      "contactInformation": {
+        "address": "Address",
+        "phone": "Phone",
+        "email": "Email"
+      },
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "mobileNumber": "Mobile Number",
+        "headOffice": "Head Office",
+        "message": "Message",
+        "submit": "Submit",
+        "submitting": "Submitting...",
+        "success": "Form submitted successfully!",
+        "error": "There was an issue submitting the form."
+      }
+    }
   }
 }
