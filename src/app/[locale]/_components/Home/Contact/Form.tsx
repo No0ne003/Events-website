@@ -9,6 +9,7 @@ import { InputClassName } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { Toaster, toast } from "sonner";
+import classNames from "classnames";
 
 type FormValues = {
   name: string;
@@ -34,29 +35,25 @@ export default function ContactForm() {
   ) => {
     try {
       setIsLoading(true);
-      // Send email using Nodemailer
-      await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
 
-      // Reset the form
-      resetForm();
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
 
-      // Show success message or redirect to a thank you page
-      console.log("Email sent successfully!");
-    } catch (error) {
-      // Handle error
-      console.error("Failed to send email:", error);
-      toast.error("Form submitted error");
-    } finally {
+      resetForm();
       toast.success("Form submitted successfully!");
+      setShowConfetti(true);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      toast.error("There was an issue submitting the form.");
+    } finally {
       setSubmitting(false);
       setIsLoading(false);
-      setShowConfetti(true);
     }
   };
 
@@ -75,68 +72,58 @@ export default function ContactForm() {
       >
         <Form className="container max-w-3xl py-8 space-y-6">
           <div className="flex flex-wrap -mx-5">
-            <div className="w-full md:w-1/2 px-5 mb-4 space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Field
-                className={InputClassName}
-                type="text"
-                id="name"
-                name="name"
-                required
-              />
-              <ErrorMessage
-                name="name"
-                component="div"
-                className="text-rose-700"
-              />
-            </div>
-            <div className="w-full md:w-1/2 px-5 mb-4 space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Field
-                className={InputClassName}
-                type="email"
-                id="email"
-                name="email"
-                required
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="text-rose-700"
-              />
-            </div>
+            {[
+              { label: "Name", id: "name", type: "text", name: "name" },
+              { label: "Email", id: "email", type: "email", name: "email" },
+            ].map(({ label, id, type, name }) => (
+              <div key={id} className="w-full md:w-1/2 px-5 mb-4 space-y-2">
+                <Label htmlFor={id}>{label}</Label>
+                <Field
+                  className={InputClassName}
+                  type={type}
+                  id={id}
+                  name={name}
+                  required
+                />
+                <ErrorMessage
+                  name={name}
+                  component="div"
+                  className="text-rose-700"
+                />
+              </div>
+            ))}
           </div>
           <div className="flex flex-wrap -mx-5">
-            <div className="w-full md:w-1/2 px-5 mb-4 space-y-2">
-              <Label htmlFor="mobileNumber">Mobile Number</Label>
-              <Field
-                className={InputClassName}
-                type="number"
-                id="mobileNumber"
-                name="mobileNumber"
-                required
-              />
-              <ErrorMessage
-                name="mobileNumber"
-                component="div"
-                className="text-rose-700"
-              />
-            </div>
-            <div className="w-full md:w-1/2 px-5 mb-4 space-y-2">
-              <Label htmlFor="headOffice">Head Office</Label>
-              <Field
-                className={InputClassName}
-                type="text"
-                id="headOffice"
-                name="headOffice"
-                required
-              />
-              <ErrorMessage
-                name="headOffice"
-                component="div"
-                className="text-rose-700"
-              />
-            </div>
+            {[
+              {
+                label: "Mobile Number",
+                id: "mobileNumber",
+                type: "number",
+                name: "mobileNumber",
+              },
+              {
+                label: "Head Office",
+                id: "headOffice",
+                type: "text",
+                name: "headOffice",
+              },
+            ].map(({ label, id, type, name }) => (
+              <div key={id} className="w-full md:w-1/2 px-5 mb-4 space-y-2">
+                <Label htmlFor={id}>{label}</Label>
+                <Field
+                  className={InputClassName}
+                  type={type}
+                  id={id}
+                  name={name}
+                  required
+                />
+                <ErrorMessage
+                  name={name}
+                  component="div"
+                  className="text-rose-700"
+                />
+              </div>
+            ))}
           </div>
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
@@ -167,7 +154,7 @@ function SubmitButton({ pending }: { pending: boolean }) {
       {pending ? (
         <div className="flex gap-2 items-center">
           <Loader size="16" className="animate-spin" />
-          <span>Submiting...</span>
+          <span>Submitting...</span>
         </div>
       ) : (
         "Submit"
