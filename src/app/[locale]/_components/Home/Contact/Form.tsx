@@ -9,7 +9,6 @@ import { InputClassName } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { Toaster, toast } from "sonner";
-import classNames from "classnames";
 
 type FormValues = {
   name: string;
