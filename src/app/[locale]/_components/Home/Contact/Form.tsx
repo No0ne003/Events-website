@@ -162,7 +162,7 @@ export default function ContactForm() {
   );
 }
 
-function SubmitButton({ pending, t }) {
+function SubmitButton({ pending, t }: { pending: boolean; t: any }) {
   return (
     <Button type="submit" disabled={pending}>
       {pending ? (
