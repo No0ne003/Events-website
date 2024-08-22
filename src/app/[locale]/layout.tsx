@@ -1,4 +1,3 @@
-import "react-toastify/dist/ReactToastify.css";
 import type { Metadata, Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { Spectral as FontSpectral } from "next/font/google";
