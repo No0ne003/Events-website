@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 type FormValues = {
   name: string;
   email: string;
-  mobileNumber: string;
+  mobileNumber: number;
   headOffice: string;
   message: string;
 };
@@ -52,7 +52,6 @@ export default function ContactForm() {
       resetForm();
       toast.success("Form submitted successfully!");
       setShowConfetti(true);
-      console.log(response)
     } catch (error) {
       console.error("Failed to send email:", error);
       toast.error("Thereu was an issue submitting the form.");
@@ -68,7 +67,7 @@ export default function ContactForm() {
         initialValues={{
           name: "",
           email: "",
-          mobileNumber: "",
+          mobileNumber: 0,
           headOffice: "",
           message: "",
         }}
@@ -98,7 +97,7 @@ export default function ContactForm() {
                 <ErrorMessage
                   name={name}
                   component="div"
-                  className="text-rose-700"
+                  className="text-rose-700 text-sm"
                 />
               </div>
             ))}
@@ -113,7 +112,7 @@ export default function ContactForm() {
               {
                 label: t("mobileNumber"),
                 id: "mobileNumber",
-                type: "string",
+                type: "number",
                 name: "mobileNumber",
               },
               {
@@ -135,7 +134,7 @@ export default function ContactForm() {
                 <ErrorMessage
                   name={name}
                   component="div"
-                  className="text-rose-700"
+                  className="text-rose-700 text-sm"
                 />
               </div>
             ))}
@@ -152,7 +151,7 @@ export default function ContactForm() {
             <ErrorMessage
               name="message"
               component="div"
-              className="text-rose-700"
+              className="text-rose-700 text-sm"
             />
           </div>
           <SubmitButton pending={isLoading} t={t} />

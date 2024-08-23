@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import SectionTitle from "@/components/ui/SectionTitle";
 import ContactForm from "./Form";
 import ContactInformation from "./ContactInformation";
@@ -15,8 +15,8 @@ export default function Contact() {
       animate="visible"
       variants={fadeInUp}
       transition={transitionSettings}
-
-      className="py-16">
+      className="py-16"
+    >
       <div className="container">
         <SectionTitle title={t("title")} id="contact" />
         <div
