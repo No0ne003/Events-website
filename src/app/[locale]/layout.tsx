@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import Header from "@/components/Header/header";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import Footer from "@/components/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

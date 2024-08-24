@@ -142,7 +142,7 @@ export default function ContactForm() {
           <div className="space-y-2">
             <Label htmlFor="message">{t("message")}</Label>
             <Field
-              className={TextareaClassName}
+              className={cn(TextareaClassName, "resize-none")}
               id="message"
               name="message"
               as="textarea"
