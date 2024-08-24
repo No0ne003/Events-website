@@ -3,7 +3,8 @@
     "about": "About",
     "services": "Services",
     "achievements": "Achievements",
-    "contact": "Contact"
+    "contact": "Contact",
+    "explore": "Explore"
   },
   "HomePage": {
     "title": ["Elevate", "Your", "Event", "to"],

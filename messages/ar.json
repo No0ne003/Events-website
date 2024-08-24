@@ -3,7 +3,8 @@
     "about": "حولنا",
     "services": "خدمات",
     "achievements": "إنجازات",
-    "contact": "اتصل بنا"
+    "contact": "اتصل بنا",
+    "explore": "استكشف"
   },
   "HomePage": {
     "title": ["ارفع", "حدثك", "إلى"],
