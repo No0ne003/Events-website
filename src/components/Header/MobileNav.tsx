@@ -40,17 +40,14 @@ export function MobileNav() {
           <Icons.logo src="/logo-urba.png" alt="urba logo" className="mr-2" />
           <span className="sr-only">{siteConfig.name}</span>
         </MobileLink>
-        <div className="flex flex-col gap-3 mt-5">
+        <div className="size-full flex flex-col mt-5">
           {navLinks.map((link) => (
             <MobileLink
               onOpenChange={setOpen}
               key={link.href}
               href={`${localActive}${link.href}`}
               className={cn(
-                "font-spectral",
-                link.label === t("contact")
-                  ? "bg-primary text-primary-foreground hover:text-primary w-fit text-lg rounded-full px-3 py-1"
-                  : null,
+                "text-lg font-spectral h-16 flex justify-start items-center px-2 border-y-[1px] odd:border-none border-foreground",
               )}
             >
               {link.label}
