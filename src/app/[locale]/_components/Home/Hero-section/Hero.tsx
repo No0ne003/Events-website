@@ -52,9 +52,6 @@ export default function Hero({
           discoverNow={discoverNow}
         />
       </div>
-      {/*<div className="flex justify-center items-center max-w-full h-[300px] lg:h-[440px]">
-        <ImageAnimation images={IMAGES} />
-      </div>*/}
       <HeroImage />
     </div>
   );
