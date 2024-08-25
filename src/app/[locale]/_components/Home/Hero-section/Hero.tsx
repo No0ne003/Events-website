@@ -6,16 +6,6 @@ import { motion } from "framer-motion";
 import { fadeInUp, transitionSettings } from "@/lib/utils";
 import HeroImage from "./HeroImage";
 
-const IMAGES = [
-  "/festival-agicole.jpg",
-  "/festival-national.jpg",
-  "/festival-printemps.jpeg",
-  "/marathon.jpg",
-  "/mariage.jpg",
-  "/semi-marathon-2.jpg",
-  "/semi-marathon.jpg",
-];
-
 export default function Hero({
   locale,
   title,
