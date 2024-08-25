@@ -67,7 +67,7 @@ export default function ContactForm() {
         initialValues={{
           name: "",
           email: "",
-          mobileNumber: 0,
+          mobileNumber: +212,
           headOffice: "",
           message: "",
         }}
