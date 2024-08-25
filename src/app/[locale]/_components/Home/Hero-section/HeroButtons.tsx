@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
+import { cn, fadeInUp } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function HeroButton({
   locale,
@@ -18,7 +18,10 @@ export default function HeroButton({
       initial="hidden"
       animate="visible"
       variants={fadeInUp}
-      transition={transitionSettings}
+      transition={{
+        duration: 1,
+        ease: [0.19, 1, 0.22, 1],
+      }}
       className={cn(
         "flex gap-4 md:gap-8 justify-center items-center",
         locale === "ar" ? "flex-row-reverse" : "",

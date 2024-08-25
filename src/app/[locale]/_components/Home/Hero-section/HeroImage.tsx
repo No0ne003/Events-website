@@ -26,7 +26,7 @@ export default function HeroImage() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-[90vw] sm:max-w-[460px] lg:max-w-[600px] aspect-[3/2] overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full max-w-[90vw] sm:max-w-[460px] lg:max-w-[600px] aspect-[3/2] overflow-hidden rounded-lg">
       <AnimatePresence>
         <motion.div
           key={currentIndex}

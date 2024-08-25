@@ -5,29 +5,6 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NavLink: React.FC<{
-  href: string;
-  label: string;
-  className?: string;
-}> = ({ href, label, className }) => {
-  const pathname = usePathname();
-
-  return (
-    <Link
-      href={href}
-      className={cn(
-        "relative text-sm md:text-base font-medium transition-transform hover:scale-110 hidden sm:inline-block",
-        pathname === href
-          ? cn("before:content-['*'] before:text-2xl before:mr-1")
-          : null,
-        className,
-      )}
-    >
-      {label}
-    </Link>
-  );
-};
-
 export function MainNav() {
   const t = useTranslations("Header");
 
@@ -57,3 +34,26 @@ export function MainNav() {
     </nav>
   );
 }
+
+const NavLink: React.FC<{
+  href: string;
+  label: string;
+  className?: string;
+}> = ({ href, label, className }) => {
+  const pathname = usePathname();
+
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "relative text-sm md:text-base font-medium transition-transform hover:scale-110 hidden sm:inline-block",
+        pathname === href
+          ? cn("before:content-['*'] before:text-2xl before:mr-1")
+          : null,
+        className,
+      )}
+    >
+      {label}
+    </Link>
+  );
+};

@@ -1,10 +1,9 @@
 "use client";
 import TitleAnimation from "./TitleAnimation";
-import ImageAnimation from "./ImageAnimation";
 import HeroButton from "./HeroButtons";
-import { motion } from "framer-motion";
-import { fadeInUp, transitionSettings } from "@/lib/utils";
 import HeroImage from "./HeroImage";
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/utils";
 
 export default function Hero({
   locale,
@@ -38,7 +37,10 @@ export default function Hero({
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            transition={transitionSettings}
+            transition={{
+              duration: 1,
+              ease: [0.19, 1, 0.22, 1],
+            }}
             className="text-muted-foreground text-center text-base font-medium max-w-2xl"
           >
             {subHeading}

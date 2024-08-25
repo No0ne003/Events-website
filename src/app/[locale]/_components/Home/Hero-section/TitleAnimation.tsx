@@ -31,9 +31,9 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
               transition={{
                 duration: 0.8,
                 ease: [0.19, 1, 0.22, 1],
-                delay: 5.5 + 0.2 * index,
+                delay: 0.2 * index,
               }}
-              className={cn("inline-block", word.className)}
+              className={cn("inline-block font-sans", word.className)}
             >
               {word.word}
             </motion.div>
@@ -48,28 +48,18 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
             "relative inline-block overflow-hidden",
             wordObj.className,
           )}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: -50, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0)" }}
           transition={{
-            duration: 0.8,
+            duration: 2,
             ease: [0.19, 1, 0.22, 1],
-            delay: 0.01 * index,
+            delay: 0.4 * index,
           }}
         >
           {wordObj.word.split("").map((letter, letterIndex) => (
-            <motion.span
-              key={letterIndex}
-              initial={{ y: "60%", opacity: 0, filter: "blur(8px)" }}
-              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-              transition={{
-                duration: 0.5,
-                ease: [0.19, 1, 0.22, 1],
-                delay: 0.5 * index + 0.05 * letterIndex,
-              }}
-              className="relative inline-block"
-            >
+            <span key={letterIndex} className="relative inline-block">
               {letter}
-            </motion.span>
+            </span>
           ))}
         </motion.div>
       ));
@@ -90,12 +80,15 @@ const TitleAnimation: React.FC<TitleAnimationProps> = ({
         visible: {
           opacity: 1,
           y: 0,
-          transition: { staggerChildren: 0.1, delay: 5.8 },
         },
       }}
     >
       {renderTitle()}
-      <FlipWords className="text-secondary" words={flipWords} duration={5000} />
+      <FlipWords
+        className={cn("text-secondary", locale === "ar" ? "font-sans" : null)}
+        words={flipWords}
+        duration={5000}
+      />
     </motion.h1>
   );
 };

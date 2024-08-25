@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 import { MobileNav } from "./MobileNav";
 import LocalSwitcher from "../local-switcher";
 import { motion } from "framer-motion";
-import { fadeInUp, transitionSettings } from "@/lib/utils";
+import { fadeInUp } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 
@@ -22,7 +22,6 @@ export default function Header() {
         initial={{ y: "-300%" }}
         animate={{ y: 0 }}
         transition={{
-          delay: pathname === `/${locale}` ? 5.5 : 0,
           duration: 0.8,
           ease: [0.19, 1, 0.22, 1],
         }}
@@ -33,7 +32,6 @@ export default function Header() {
         animate="visible"
         variants={fadeInUp}
         transition={{
-          delay: pathname === `/${locale}` ? 6 : 0,
           duration: 2,
           ease: [0.19, 1, 0.22, 1],
         }}

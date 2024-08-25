@@ -1,10 +1,9 @@
 "use client";
 
 import SectionTitle from "@/components/ui/SectionTitle";
-import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { useState, useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import ServiceListItem from "./ServiceListItem";
 import ServiceDetail from "./ServiceDetail";
 
@@ -46,13 +45,7 @@ export default function Services() {
   const [currentService, setCurrentService] = useState(0);
 
   return (
-    <motion.section
-      initial="hidden"
-      animate="visible"
-      variants={fadeInUp}
-      transition={transitionSettings}
-      className="py-10 bg-gradient-to-t from-primary/20 to-transparent"
-    >
+    <section className="py-10 bg-gradient-to-t from-primary/20 to-transparent">
       <div className="lg:container flex flex-col justify-center items-center gap-20">
         <div
           className={cn(
@@ -114,6 +107,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

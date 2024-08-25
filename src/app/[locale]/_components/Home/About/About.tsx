@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const BOLD_TEXT_HTML =
   "<strong class='text-foreground/80'>URBA EVENTS INTERNATIONAL</strong>";
@@ -26,13 +25,7 @@ export default function About() {
   const locale = useLocale();
 
   return (
-    <motion.section
-      initial="hidden"
-      animate="visible"
-      variants={fadeInUp}
-      transition={transitionSettings}
-      className="py-16 flex flex-col gap-10 bg-primary/20"
-    >
+    <section className="py-16 flex flex-col gap-10 bg-primary/20">
       <SectionTitle title={title} id="about" />
 
       <div className="container flex flex-col lg:flex-row items-center gap-10 px-4 lg:px-8">
@@ -74,6 +67,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
