@@ -20,25 +20,19 @@ export default function Quote() {
             once: true,
           }}
         >
+          <QuoteIcon
+            className={cn(
+              "size-8 fill-secondary",
+              locale === "ar" ? null : "transform -scale-x-100",
+            )}
+          />
           <p
             className={cn(
-              "lg:text-lg font-semibold leading-relaxed font-spectral mx-auto flex justify-center max:max-w-xs",
+              "lg:text-lg font-semibold leading-relaxed font-spectral mx-auto text-start max:max-w-xs pl-16",
               locale === "ar" ? "flex-row-reverse" : null,
             )}
           >
-            <QuoteIcon
-              className={cn(
-                "size-10 lg:size-6 fill-secondary",
-                locale === "ar" ? null : "transform -scale-x-100",
-              )}
-            />
             {quote}
-            <QuoteIcon
-              className={cn(
-                "size-10 lg:size-6 fill-secondary self-end",
-                locale === "ar" ? "transform -scale-x-100" : null,
-              )}
-            />
           </p>
         </motion.div>
       </div>
