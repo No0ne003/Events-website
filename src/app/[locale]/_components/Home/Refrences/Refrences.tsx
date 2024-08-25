@@ -23,13 +23,7 @@ export default function Refrences() {
   ];
 
   return (
-    <motion.section
-      initial="hidden"
-      animate="visible"
-      variants={fadeInUp}
-      transition={transitionSettings}
-      className="py-[4.5rem] overflow-x-hidden flex flex-col gap-5 justify-center items-center"
-    >
+    <section className="py-[4.5rem] overflow-x-hidden flex flex-col gap-5 justify-center items-center">
       <SectionTitle title={t("our-references")} />
       <motion.div
         initial={{ opacity: 0 }}
@@ -46,6 +40,6 @@ export default function Refrences() {
           ))}
         </Marquee>
       </motion.div>
-    </motion.section>
+    </section>
   );
 }

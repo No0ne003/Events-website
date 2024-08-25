@@ -2,7 +2,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { QuoteIcon } from "lucide-react";
-import { cn, fadeInUp, transitionSettings } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 export default function Quote() {
   const t = useTranslations("HomePage");
@@ -10,13 +10,7 @@ export default function Quote() {
   const locale = useLocale();
 
   return (
-    <motion.section
-      initial="hidden"
-      animate="visible"
-      variants={fadeInUp}
-      transition={transitionSettings}
-      className="py-10 bg-gradient-to-b from-primary/20 to-transparent"
-    >
+    <section className="py-10 bg-gradient-to-b from-primary/20 to-transparent">
       <div className="container mx-auto text-center max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -26,28 +20,22 @@ export default function Quote() {
             once: true,
           }}
         >
+          <QuoteIcon
+            className={cn(
+              "size-8 fill-secondary",
+              locale === "ar" ? null : "transform -scale-x-100",
+            )}
+          />
           <p
             className={cn(
-              "lg:text-lg font-semibold leading-relaxed font-spectral mx-auto flex justify-center max:max-w-xs",
+              "lg:text-lg font-semibold leading-relaxed font-spectral mx-auto text-start max:max-w-xs pl-16",
               locale === "ar" ? "flex-row-reverse" : null,
             )}
           >
-            <QuoteIcon
-              className={cn(
-                "size-10 lg:size-6 fill-secondary",
-                locale === "ar" ? null : "transform -scale-x-100",
-              )}
-            />
             {quote}
-            <QuoteIcon
-              className={cn(
-                "size-10 lg:size-6 fill-secondary self-end",
-                locale === "ar" ? "transform -scale-x-100" : null,
-              )}
-            />
           </p>
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }
