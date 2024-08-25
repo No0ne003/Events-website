@@ -9,6 +9,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default async function RootLayout({
         )}
       >
         <SpeedInsights />
+        <Analytics />
         <NextIntlClientProvider messages={messages}>
           <Header />
           {children}
