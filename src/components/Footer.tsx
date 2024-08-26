@@ -86,19 +86,18 @@ export default function Footer() {
           <div className="text-left flex flex-col gap-3 w-full">
             <h4 className="text-base font-semibold">{t("contact")}</h4>
             <address className="not-italic text-sm leading-6 flex flex-col gap-1">
-              <a
+              <Link
                 href={`mailto:${siteConfig.email}`}
                 className="transition-colors hover:text-primary-foreground/80"
               >
                 {siteConfig.email}
-              </a>
-              <br />
-              <a
+              </Link>
+              <Link
                 href={`tel:${siteConfig.tel}`}
                 className="transition-colors hover:text-primary-foreground/80"
               >
                 {siteConfig.tel}
-              </a>
+              </Link>
             </address>
           </div>
         </div>
