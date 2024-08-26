@@ -63,7 +63,11 @@
         "submit": "Envoyer",
         "submitting": "Envoi en cours...",
         "success": "Le formulaire a été soumis avec succès !",
-        "error": "Un problème est survenu lors de l'envoi du formulaire."
+        "error": "Un problème est survenu lors de l'envoi du formulaire.",
+        "nameRequired": "Le nom est requis",
+        "emailInvalid": "Adresse e-mail invalide",
+        "mobileNumberInvalid": "Numéro de téléphone invalide",
+        "messageMinLength": "Le message doit comporter au moins 10 caractères"
       }
     }
   }

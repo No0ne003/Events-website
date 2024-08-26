@@ -13,15 +13,17 @@ import { Toaster, toast } from "sonner";
 import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
-const validationSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  mobileNumber: z.string().regex(/^\d+$/, "Invalid mobile number"),
-  headOffice: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters long"),
-});
+function getValidationSchema(t: any) {
+  return z.object({
+    name: z.string().min(2, t("nameRequired")),
+    email: z.string().email(t("emailInvalid")),
+    mobileNumber: z.string().regex(/^\d+$/, t("mobileNumberInvalid")),
+    headOffice: z.string().optional(),
+    message: z.string().min(10, t("messageMinLength")),
+  });
+}
 
-type FormValues = z.infer<typeof validationSchema>;
+type FormValues = z.infer<ReturnType<typeof getValidationSchema>>;
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -34,7 +36,7 @@ export default function ContactForm() {
     formState: { errors },
     reset,
   } = useForm<FormValues>({
-    resolver: zodResolver(validationSchema),
+    resolver: zodResolver(getValidationSchema(t)),
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
@@ -49,10 +51,10 @@ export default function ContactForm() {
       if (!response.ok) throw new Error("Failed to send email");
 
       reset();
-      toast.success("Form submitted successfully!");
+      toast.success(t("success"));
     } catch (error) {
       console.error(error);
-      toast.error("There was an issue submitting the form.");
+      toast.error(t("error"));
     } finally {
       setIsLoading(false);
     }
@@ -97,6 +99,7 @@ export default function ContactForm() {
             label={t("mobileNumber")}
             register={register}
             errors={errors}
+            type="number"
             required
           />
           <FormField
