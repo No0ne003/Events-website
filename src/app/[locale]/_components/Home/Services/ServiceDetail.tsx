@@ -38,6 +38,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({
       width={400}
       height={400}
       className="z-10 rounded-lg max-sm:w-screen size-[300px] lg:size-[400px] lg:mr-10"
+      priority
     />
   </div>
 );
