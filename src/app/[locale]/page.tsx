@@ -1,15 +1,15 @@
-import { useLocale, useMessages, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Hero from "./_components/Home/Hero-section/Hero";
 import Refrences from "./_components/Home/Refrences/Refrences";
 import Services from "./_components/Home/Services/Services";
 import About from "./_components/Home/About/About";
 import Quote from "./_components/Home/Quote/Quote";
 import Contact from "./_components/Home/Contact/Contact";
+import Achievements from "./_components/Home/Achievements/Achievements";
 
 const Home: React.FC = () => {
   const locale = useLocale();
   const t = useTranslations("HomePage");
-  const messages = useMessages();
 
   const title = t.raw("title");
   const titleSplit = t.raw("titleSplit");
@@ -29,6 +29,7 @@ const Home: React.FC = () => {
       />
       <Refrences />
       <Services />
+      <Achievements />
       <About />
       <Quote />
       <Contact />

@@ -45,7 +45,7 @@ export default function Services() {
   const [currentService, setCurrentService] = useState(0);
 
   return (
-    <section className="py-10 bg-gradient-to-t from-primary/20 to-transparent">
+    <section className="py-10">
       <div className="lg:container flex flex-col justify-center items-center gap-20">
         <div
           className={cn(
