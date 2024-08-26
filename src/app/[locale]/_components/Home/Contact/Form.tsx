@@ -1,42 +1,36 @@
 "use client";
+
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { Label } from "@/components/ui/label";
-import { Textarea, TextareaClassName } from "@/components/ui/textarea";
-import { validationSchema } from "@/lib/validation";
-import { toFormikValidationSchema } from "zod-formik-adapter";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { InputClassName } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { Toaster, toast } from "sonner";
 import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { validationSchema } from "@/lib/validation";
 
-type FormValues = {
-  name: string;
-  email: string;
-  mobileNumber: number;
-  headOffice: string;
-  message: string;
-};
+type FormValues = z.infer<typeof validationSchema>;
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
-
   const t = useTranslations("HomePage.contact.form");
   const locale = useLocale();
 
-  const handleSubmit = async (
-    values: FormValues,
-    {
-      setSubmitting,
-      resetForm,
-    }: {
-      setSubmitting: (isSubmitting: boolean) => void;
-      resetForm: () => void;
-    },
-  ) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormValues>({
+    resolver: zodResolver(validationSchema),
+  });
+
+  const onSubmit = async (values: FormValues) => {
     try {
       setIsLoading(true);
       const response = await fetch("/api/contact", {
@@ -45,121 +39,102 @@ export default function ContactForm() {
         body: JSON.stringify(values),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send email");
-      }
+      if (!response.ok) throw new Error("Failed to send email");
 
-      resetForm();
+      reset();
       toast.success("Form submitted successfully!");
-      setShowConfetti(true);
     } catch (error) {
-      console.error("Failed to send email:", error);
-      toast.error("Thereu was an issue submitting the form.");
+      console.error(error);
+      toast.error("There was an issue submitting the form.");
     } finally {
-      setSubmitting(false);
       setIsLoading(false);
     }
   };
 
   return (
     <>
-      <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          mobileNumber: +212,
-          headOffice: "",
-          message: "",
-        }}
-        validationSchema={toFormikValidationSchema(validationSchema)}
-        onSubmit={handleSubmit}
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="container max-w-3xl p-8 space-y-6"
       >
-        <Form className="size-full max-w-3xl p-8 space-y-6">
-          <div
-            className={cn(
-              "flex flex-wrap -mx-5",
-              locale === "ar" ? "flex-row-reverse" : null,
-            )}
-          >
-            {[
-              { label: t("name"), id: "name", type: "text", name: "name" },
-              { label: t("email"), id: "email", type: "email", name: "email" },
-            ].map(({ label, id, type, name }) => (
-              <div key={id} className="w-full md:w-1/2 px-5 mb-4 space-y-2">
-                <Label htmlFor={id}>{label}</Label>
-                <Field
-                  className={InputClassName}
-                  type={type}
-                  id={id}
-                  name={name}
-                  required
-                />
-                <ErrorMessage
-                  name={name}
-                  component="div"
-                  className="text-rose-700 text-sm"
-                />
-              </div>
-            ))}
-          </div>
-          <div
-            className={cn(
-              "flex flex-wrap -mx-5",
-              locale === "ar" ? "flex-row-reverse" : null,
-            )}
-          >
-            {[
-              {
-                label: t("mobileNumber"),
-                id: "mobileNumber",
-                type: "number",
-                name: "mobileNumber",
-              },
-              {
-                label: t("headOffice"),
-                id: "headOffice",
-                type: "text",
-                name: "headOffice",
-              },
-            ].map(({ label, id, type, name }) => (
-              <div key={id} className="w-full md:w-1/2 px-5 mb-4 space-y-2">
-                <Label htmlFor={id}>{label}</Label>
-                <Field
-                  className={InputClassName}
-                  type={type}
-                  id={id}
-                  name={name}
-                  required
-                />
-                <ErrorMessage
-                  name={name}
-                  component="div"
-                  className="text-rose-700 text-sm"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="message">{t("message")}</Label>
-            <Field
-              className={cn(TextareaClassName, "resize-none")}
-              id="message"
-              name="message"
-              as="textarea"
-              required
-            />
-            <ErrorMessage
-              name="message"
-              component="div"
-              className="text-rose-700 text-sm"
-            />
-          </div>
-          <SubmitButton pending={isLoading} t={t} />
-        </Form>
-      </Formik>
+        <div
+          className={cn(
+            "flex flex-wrap -mx-5",
+            locale === "ar" && "flex-row-reverse",
+          )}
+        >
+          <FormField
+            id="name"
+            label={t("name")}
+            register={register}
+            errors={errors}
+            required
+          />
+          <FormField
+            id="email"
+            label={t("email")}
+            register={register}
+            errors={errors}
+            required
+            type="email"
+          />
+        </div>
+        <div
+          className={cn(
+            "flex flex-wrap -mx-5",
+            locale === "ar" && "flex-row-reverse",
+          )}
+        >
+          <FormField
+            id="mobileNumber"
+            label={t("mobileNumber")}
+            register={register}
+            errors={errors}
+            required
+          />
+          <FormField
+            id="headOffice"
+            label={t("headOffice")}
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="message">{t("message")}</Label>
+          <Textarea
+            id="message"
+            {...register("message")}
+            className="resize-none"
+            required
+          />
+          {errors.message && <ErrorMessage message={errors.message.message} />}
+        </div>
+        <SubmitButton pending={isLoading} t={t} />
+      </form>
       <Toaster position="top-right" richColors />
     </>
   );
+}
+
+function FormField({
+  id,
+  label,
+  register,
+  errors,
+  type = "text",
+  required = false,
+}) {
+  return (
+    <div className="w-full md:w-1/2 px-5 mb-4 space-y-2">
+      <Label htmlFor={id}>{label}</Label>
+      <Input id={id} type={type} {...register(id)} required={required} />
+      {errors[id] && <ErrorMessage message={errors[id]?.message} />}
+    </div>
+  );
+}
+
+function ErrorMessage({ message }: { message: string }) {
+  return <p className="text-rose-700 text-sm">{message}</p>;
 }
 
 function SubmitButton({ pending, t }: { pending: boolean; t: any }) {
