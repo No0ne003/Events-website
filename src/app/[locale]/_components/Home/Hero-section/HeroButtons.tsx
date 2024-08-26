@@ -23,7 +23,7 @@ export default function HeroButton({
         ease: [0.19, 1, 0.22, 1],
       }}
       className={cn(
-        "flex gap-4 md:gap-8 justify-center items-center",
+        "flex container gap-4 md:gap-8 justify-center items-center flex-wrap",
         locale === "ar" ? "flex-row-reverse" : "",
       )}
     >
@@ -55,7 +55,7 @@ export default function HeroButton({
         </Link>
       </Button>
       <Button variant="linkHover1" asChild>
-        <Link href={`${locale}/services`}>{discoverNow}</Link>
+        <Link href={`#services`}>{discoverNow}</Link>
       </Button>
     </motion.div>
   );
