@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Label } from "@/components/ui/label";
@@ -17,7 +17,7 @@ import { validationSchema } from "@/lib/validation";
 type FormValues = z.infer<typeof validationSchema>;
 
 export default function ContactForm() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const t = useTranslations("HomePage.contact.form");
   const locale = useLocale();
 
@@ -30,7 +30,7 @@ export default function ContactForm() {
     resolver: zodResolver(validationSchema),
   });
 
-  const onSubmit = async (values: FormValues) => {
+  const onSubmit: SubmitHandler<FormValues> = async (values) => {
     try {
       setIsLoading(true);
       const response = await fetch("/api/contact", {
@@ -116,6 +116,15 @@ export default function ContactForm() {
   );
 }
 
+type FormFieldProps = {
+  id: keyof FormValues;
+  label: string;
+  register: any;
+  errors: Partial<Record<keyof FormValues, { message?: string }>>;
+  type?: string;
+  required?: boolean;
+};
+
 function FormField({
   id,
   label,
@@ -123,17 +132,17 @@ function FormField({
   errors,
   type = "text",
   required = false,
-}) {
+}: FormFieldProps) {
   return (
     <div className="w-full md:w-1/2 px-5 mb-4 space-y-2">
       <Label htmlFor={id}>{label}</Label>
       <Input id={id} type={type} {...register(id)} required={required} />
-      {errors[id] && <ErrorMessage message={errors[id]?.message} />}
+      {errors[id] && <ErrorMessage message={errors[id]?.message ?? ""} />}
     </div>
   );
 }
 
-function ErrorMessage({ message }: { message: string }) {
+function ErrorMessage({ message }: { message: string | undefined }) {
   return <p className="text-rose-700 text-sm">{message}</p>;
 }
 
