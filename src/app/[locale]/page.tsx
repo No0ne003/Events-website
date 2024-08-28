@@ -5,7 +5,6 @@ import Services from "./_components/Home/Services/Services";
 import About from "./_components/Home/About/About";
 import Quote from "./_components/Home/Quote/Quote";
 import Contact from "./_components/Home/Contact/Contact";
-import Achievements from "./_components/Home/Achievements/Achievements";
 
 const Home: React.FC = () => {
   const locale = useLocale();
@@ -29,7 +28,6 @@ const Home: React.FC = () => {
       />
       <Refrences />
       <Services />
-      <Achievements />
       <About />
       <Quote />
       <Contact />

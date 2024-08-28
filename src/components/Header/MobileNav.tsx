@@ -76,7 +76,7 @@ function MobileLink({
   return (
     <Link
       className={className}
-      href={href}
+      href={`/${href}`}
       onClick={() => {
         router.push(href.toString());
         onOpenChange?.(false);

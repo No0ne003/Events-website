@@ -44,7 +44,7 @@ const NavLink: React.FC<{
 
   return (
     <Link
-      href={href}
+      href={`/${href}`}
       className={cn(
         "relative text-sm md:text-base font-medium transition-transform hover:scale-110 hidden sm:inline-block",
         pathname === href
