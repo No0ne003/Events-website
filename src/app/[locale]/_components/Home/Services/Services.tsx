@@ -16,7 +16,7 @@ export default function Services() {
       {
         title: t("service-1.title"),
         description: t("service-1.description"),
-        image: "/services/organisation-des-evenements.png",
+        image: "/services/organisation-des-evenements.png"
       },
       {
         title: t("service-2.title"),

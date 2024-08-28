@@ -63,7 +63,11 @@
         "submit": "Submit",
         "submitting": "Submitting...",
         "success": "Form submitted successfully!",
-        "error": "There was an issue submitting the form."
+        "error": "There was an issue submitting the form.",
+        "nameRequired": "Name is required",
+        "emailInvalid": "Invalid email address",
+        "mobileNumberInvalid": "Invalid mobile number",
+        "messageMinLength": "Message must be at least 10 characters long"
       }
     }
   }

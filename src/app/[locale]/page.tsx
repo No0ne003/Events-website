@@ -1,4 +1,4 @@
-import { useLocale, useMessages, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Hero from "./_components/Home/Hero-section/Hero";
 import Refrences from "./_components/Home/Refrences/Refrences";
 import Services from "./_components/Home/Services/Services";
@@ -9,7 +9,6 @@ import Contact from "./_components/Home/Contact/Contact";
 const Home: React.FC = () => {
   const locale = useLocale();
   const t = useTranslations("HomePage");
-  const messages = useMessages();
 
   const title = t.raw("title");
   const titleSplit = t.raw("titleSplit");
