@@ -3,7 +3,7 @@ import { render } from "@react-email/components";
 import { transporter, smtpEmail } from "@/lib/nodemailer";
 import { Email } from "@/components/email";
 
-export const maxDuration = 60; // This function can run for a maximum of 5 seconds
+export const maxDuration = 60; 
 
 export async function POST(req: NextRequest, res: NextResponse) {
   const body = await req.json();
