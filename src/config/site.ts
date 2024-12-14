@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Urba events international",
-  url: "http://urbaevents.com/",
-  description: "urba events international",
+  url: "eventswebsite.vercel.app",
+  description: "urba events international (clone for learning purpose)",
   address: [
     "Boulevard Allal El Fassi",
     "Complexe Professionnel des Habous, Tranche 2, Imm B",
