@@ -48,12 +48,12 @@ export default function Footer() {
 							alt="Urba logo"
 							className="mb-4"
 						/>
-						<div className="text-center text-xs text-primary-foreground/60">
+						<div className="text-start md:text-center text-xs text-primary-foreground/60">
 							Copyright © {new Date().getFullYear()} - Personal Project. All
 							rights reserved to their respective owners.
 						</div>
 					</div>
-					<div className="flex gap-4">
+					<div className="flex gap-4 md:mx-auto">
 						{socialLinks.map(({ href, label, icon }) => (
 							<Link
 								key={label}
