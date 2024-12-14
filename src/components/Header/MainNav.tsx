@@ -9,10 +9,10 @@ export function MainNav() {
   const t = useTranslations("Header");
 
   const navLinks = [
-    { href: "#services", label: t("services") },
-    { href: "#about", label: t("about") },
-    { href: "/achievements", label: t("achievements") },
     { href: "#contact", label: t("contact") },
+    { href: "/achievements", label: t("achievements") },
+    { href: "#about", label: t("about") },
+    { href: "#services", label: t("services") },
   ];
 
   const localActive = useLocale();
