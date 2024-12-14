@@ -3,6 +3,8 @@ import { render } from "@react-email/components";
 import { transporter, smtpEmail } from "@/lib/nodemailer";
 import { Email } from "@/components/email";
 
+const allowedOrigins = ["https://urbaevents.vercel.app"];
+
 export const maxDuration = 60; 
 
 export async function POST(req: NextRequest, res: NextResponse) {
