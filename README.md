@@ -1,6 +1,6 @@
 # Events Website Project
 
-This project is a **learning and demonstration project** inspired by Urba Events. 
+This project is a **learning and demonstration project** inspired by [Urba Events](https://urbaevents.com/).
 
 - **Logo Use**: The Urba Events logo is included solely for demonstration purposes. This project is not affiliated with or endorsed by Urba Events.
 - **Purpose**: The project was created to showcase my front-end development skills and is not intended for commercial use.
