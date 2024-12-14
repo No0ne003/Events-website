@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Urba events international",
-  url: "eventswebsite.vercel.app",
+  url: "https://www.eventswebsite.vercel.app",
   description: "urba events international (clone for learning purpose)",
   address: [
     "Boulevard Allal El Fassi",
