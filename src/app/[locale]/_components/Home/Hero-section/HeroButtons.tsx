@@ -34,7 +34,7 @@ export default function HeroButton({
         asChild
       >
         <Link
-          href={`${locale}/contact`}
+          href={`${locale}/#contact`}
           className={cn("flex", locale === "ar" ? "flex-row-reverse" : null)}
         >
           {contactUs}
@@ -55,7 +55,7 @@ export default function HeroButton({
         </Link>
       </Button>
       <Button variant="linkHover1" asChild>
-        <Link href={`#services`}>{discoverNow}</Link>
+        <Link href={`/#services`}>{discoverNow}</Link>
       </Button>
     </motion.div>
   );
